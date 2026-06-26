@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喂食量计算器 | 免费计算器 | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="计算 the right food amount and feeding frequency based on fish count and species type.">
+    <link rel="canonical" href="https://aquacalcs.com/fish-feeding-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="喂食量计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="计算 the right food amount and feeding frequency based on fish count and species type.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/fish-feeding-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="喂食量计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="计算 the right food amount and feeding frequency based on fish count and species type.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "喂食量计算器", "description": "计算 the right food amount and feeding frequency based on fish count and species type.", "url": "https://aquacalcs.com/fish-feeding-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "鱼类放养", "item": "https://aquacalcs.com/category/fish-stocking/"}, {"@type": "ListItem", "position": 3, "name": "喂食量计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I know if I'm overfeeding my fish?", "acceptedAnswer": {"@type": "Answer", "text": "Signs of overfeeding include cloudy water, algae blooms, uneaten food on the bottom, ammonia/nitrite spikes, and lethargy in fish. Start by removing any uneaten food after 3 minutes and testing water parameters. If ammonia is above 0 ppm or nitrite is detectable, you're definitely overfeeding\u2014reduce portions by 25-30% immediately and increase water changes to twice weekly until parameters stabilize."}}, {"@type": "Question", "name": "Why does fish species matter for feeding amounts?", "acceptedAnswer": {"@type": "Answer", "text": "Different fish have vastly different metabolisms and digestive systems. Goldfish are gluttons that eat continuously and need 3% of body weight daily, while carnivorous fish like piranhas metabolize less frequently and need only 1-2%, and herbivorous fish like plecos need mostly vegetables with minimal protein pellets. Using the wrong feeding rate for your species leads to either malnutrition or toxic water conditions."}}, {"@type": "Question", "name": "Should I feed my fish once or multiple times daily?", "acceptedAnswer": {"@type": "Answer", "text": "Most aquarium fish benefit from 2-3 small meals daily rather than one large meal because their stomachs are small and digestive systems work best with frequent, modest portions. Goldfish and bottom-feeders can handle once or twice daily, while active tropical fish and fry do better with 3-4 feedings. Multiple feedings also reduce waste accumulation because fish metabolize food more efficiently when fed smaller portions."}}, {"@type": "Question", "name": "How do I adjust feeding when I change food types?", "acceptedAnswer": {"@type": "Answer", "text": "When switching from flakes to pellets, reduce the portion by about 20% because pellets are denser and more nutritious per gram. When introducing live food (brine shrimp, bloodworms), reduce dry food portions by 25-30% that day since live food is highly nutritious. Track your fish's appearance over 1-2 weeks and adjust to maintain that ideal slightly-full body shape without bloating."}}, {"@type": "Question", "name": "What happens if I underfeed my fish?", "acceptedAnswer": {"@type": "Answer", "text": "Underfed fish develop stunted growth, weakened immune systems, increased disease susceptibility, and behavioral problems like aggression or fin-nipping. Over weeks, they'll show visible spine prominence and hollow bellies. However, slight underfeeding (by 10-15%) is much safer than overfeeding because it doesn't degrade water chemistry\u2014if you're unsure, feed conservatively and increase gradually while monitoring fish health and water parameters."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="首页">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="主导航">
+    <a href="../category/tank-setup/index.html">缸体设置</a>
+    <a href="../category/water-chemistry/index.html">水质化学</a>
+    <a href="../category/fish-stocking/index.html">鱼类放养</a>
+    <a href="../category/equipment-maintenance/index.html">设备维护</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="面包屑导航">
+    <div class="container">
+        <a href="../index.html">首页</a><span class="sep" aria-hidden="true">/</span><a href="../category/fish-stocking/index.html">鱼类放养</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">喂食量计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>喂食量计算器</h1>
+                    <p class="calc-description">计算 the right food amount and feeding frequency based on fish count and species type.</p>
+                    <form id="calc-form" aria-label="计算器输入">
+        <div class="form-group">
+            <label for="num_fish">鱼的数量</label>
+            <input type="number" id="num_fish" name="num_fish" value="15" step="1" min="1" max="200">
+        </div>
+        <div class="form-group">
+            <label for="avg_size">Average Fish Size (inches)</label>
+            <input type="number" id="avg_size" name="avg_size" value="2" step="0.5" min="0.5" max="18">
+        </div>
+        <div class="form-group">
+            <label for="fish_category">Fish Category</label>
+            <select id="fish_category" name="fish_category">
+                <option value="Tropical Community" selected>Tropical Community</option>
+                <option value="金鱼/锦鲤">金鱼/锦鲤</option>
+                <option value="Cichlids">Cichlids</option>
+                <option value="Bettas">Bettas</option>
+                <option value="Bottom Feeders">Bottom Feeders</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="food_type">Food Type</label>
+            <select id="food_type" name="food_type">
+                <option value="Flakes" selected>Flakes</option>
+                <option value="Pellets">Pellets</option>
+                <option value="Frozen/Freeze-dried">Frozen/Freeze-dried</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">计算</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>计算结果</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>可视化图表</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="计算器图表"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="广告"></div> -->
+
+    <section class="edu-section">
+        <h2>使用说明</h2>
+        <p>The 喂食量计算器 determines the precise daily food amount and optimal feeding frequency for your aquarium based on fish species, count, and size. Proper feeding is critical for fish health, water quality, and tank stability—overfeeding causes waste buildup and poor water conditions, while underfeeding leads to malnourished fish and stunted growth. 无论您是第一次设置鱼缸的新手，还是扩展多缸系统的资深爱好者，此计算器都能提供数据驱动的指导，帮助避免代价高昂的错误并维持健康的水生环境。 The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>计算公式</h3>
+<div class="formula-block">每日食量（克） = (鱼的数量 × Average Fish Weight in grams × Species-Specific Feeding Rate %) ÷ 100. Feeding frequency is then determined by dividing total daily food by portion size (typically 2-5% of total body weight per feeding, distributed across multiple daily meals based on fish metabolism and behavior).</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>N</strong> — 鱼的数量 — the total count of fish in your aquarium</li>
+<li><strong>S</strong> — Average Fish Size (inches) — the typical length of your fish, converted to grams based on species-specific weight charts</li>
+<li><strong>FR%</strong> — Species-Specific Feeding Rate — the percentage of body weight fish should consume daily (goldfish ~3%, cichlids ~2-3%, tropical community fish ~2-5%, carnivores ~1-2%)</li>
+<li><strong>FT</strong> — Food Type — the category of food (pellets, flakes, live food, frozen food) which affects portion sizing and nutritional density</li>
+<li><strong>Fish Category — the biological group (goldfish, cichlids, tropical community, carnivores) which determines metabolic rate and feeding behavior</strong> — </li>
+</ul>
+<h3>计算示例</h3>
+<p>Let's say you have 6 small goldfish averaging 2 inches each. Using species data, a 2-inch goldfish weighs approximately 10 grams, so your total fish weight is 60 grams. Goldfish require about 3% of their body weight daily, meaning 60 × 0.03 = 1.8 grams of food per day. Split across two feedings (morning and evening), you'd feed 0.9 grams per session. If using standard goldfish pellets, this equals roughly one pinch or small pinch per fish per feeding. For a 50-gallon tank with these goldfish, you'd feed approximately 1.8 grams daily across two sessions.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>方法论</h3>
+<p>The methodology behind the 喂食量计算器 is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the 美国渔业学会. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the 宠物行业联合咨询委员会 (PIJAC) care sheets, and the 世界水生兽医协会 recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>适用场景</h3>
+<p>The 喂食量计算器 serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>常见错误</h3>
+<p>When using the 喂食量计算器, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in fish-stocking work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>实用建议</h3>
+<ul>
+<li>Measure portions by weight using a small kitchen scale rather than guessing—a &#x27;pinch&#x27; varies dramatically between people and can easily result in 2-3x overfeeding, which degrades water quality within days</li>
+<li>Account for fish age and season: juvenile fish need 5-7% of body weight daily while adults need 2-3%, and metabolic rates drop 30-40% in winter for temperate species, so reduce feeding accordingly</li>
+<li>Different food types have different densities—live food and frozen food require smaller portions than dry pellets because they&#x27;re more nutritionally concentrated, so adjust amounts when switching food types</li>
+<li>Feed only what fish consume in 2-3 minutes; any uneaten food after this window should be removed immediately with a net or turkey baster, as decomposing food creates ammonia spikes</li>
+<li>Monitor fish body condition weekly: they should have a slight fullness behind their gills but not bulging sides; if they&#x27;re skinny, increase portions by 10-15%, and if they&#x27;re rounded, reduce by 10-15%</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>常见问题</h3>
+<details class="faq-item"><summary>How do I know if I&#x27;m overfeeding my fish?</summary>
+<p>Signs of overfeeding include cloudy water, algae blooms, uneaten food on the bottom, ammonia/nitrite spikes, and lethargy in fish. Start by removing any uneaten food after 3 minutes and testing water parameters. If ammonia is above 0 ppm or nitrite is detectable, you're definitely overfeeding—reduce portions by 25-30% immediately and increase water changes to twice weekly until parameters stabilize.</p>
+</details>
+<details class="faq-item"><summary>Why does fish species matter for feeding amounts?</summary>
+<p>Different fish have vastly different metabolisms and digestive systems. Goldfish are gluttons that eat continuously and need 3% of body weight daily, while carnivorous fish like piranhas metabolize less frequently and need only 1-2%, and herbivorous fish like plecos need mostly vegetables with minimal protein pellets. Using the wrong feeding rate for your species leads to either malnutrition or toxic water conditions.</p>
+</details>
+<details class="faq-item"><summary>Should I feed my fish once or multiple times daily?</summary>
+<p>Most aquarium fish benefit from 2-3 small meals daily rather than one large meal because their stomachs are small and digestive systems work best with frequent, modest portions. Goldfish and bottom-feeders can handle once or twice daily, while active tropical fish and fry do better with 3-4 feedings. Multiple feedings also reduce waste accumulation because fish metabolize food more efficiently when fed smaller portions.</p>
+</details>
+<details class="faq-item"><summary>How do I adjust feeding when I change food types?</summary>
+<p>When switching from flakes to pellets, reduce the portion by about 20% because pellets are denser and more nutritious per gram. When introducing live food (brine shrimp, bloodworms), reduce dry food portions by 25-30% that day since live food is highly nutritious. Track your fish's appearance over 1-2 weeks and adjust to maintain that ideal slightly-full body shape without bloating.</p>
+</details>
+<details class="faq-item"><summary>What happens if I underfeed my fish?</summary>
+<p>Underfed fish develop stunted growth, weakened immune systems, increased disease susceptibility, and behavioral problems like aggression or fin-nipping. Over weeks, they'll show visible spine prominence and hollow bellies. However, slight underfeeding (by 10-15%) is much safer than overfeeding because it doesn't degrade water chemistry—if you're unsure, feed conservatively and increase gradually while monitoring fish health and water parameters.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>参考来源</h3>
+<ul>
+<li>美国渔业学会 — Fish Nutrition and Feeding</li>
+<li>The Aquarium Doctor — Fish Feeding Guidelines by Species</li>
+<li>Fishkeeping World — Complete Guide to Aquarium Fish Nutrition</li>
+<li>University of Florida IFAS Extension — Aquaculture and Fish Nutrition</li>
+<li>Association of Professional Aquaculturists — Best Practices in Fish Feeding</li>
+</ul>
+</div>
+<p class="edu-meta">最后更新： April 12, 2026 &middot; 审阅：Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More 鱼类放养 Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../stocking-level-calculator/index.html">放养密度计算器</a></li>
+            <li><a href="https://aquacalcs.com/fish-growth-calculator/" target="_blank" rel="noopener">Fish Growth Rate Calculator</a></li>
+            <li><a href="https://aquacalcs.com/breeding-tank-calculator/" target="_blank" rel="noopener">Breeding Tank Calculator</a></li>
+            <li><a href="https://aquacalcs.com/quarantine-tank-calculator/" target="_blank" rel="noopener">Quarantine Tank Calculator</a></li>
+            <li><a href="https://aquacalcs.com/fish-compatibility-score/" target="_blank" rel="noopener">Fish Compatibility Calculator</a></li>
+            <li><a href="https://aquacalcs.com/bio-load-calculator/" target="_blank" rel="noopener">Bio-Load Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="侧边栏">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="广告"></div> -->
+        <div class="sidebar-widget">
+            <h3>相关计算器</h3>
+            <ul>
+            <li><a href="../stocking-level-calculator/index.html">放养密度计算器</a></li>
+            <li><a href="https://aquacalcs.com/bio-load-calculator/" target="_blank" rel="noopener">Bio-Load Calculator</a></li>
+            <li><a href="../water-change-calculator/index.html">换水计算器</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>计算器</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">缸体设置</a></li>
+            <li><a href="../category/water-chemistry/index.html">水质化学</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>更多工具</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">鱼类放养</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">设备维护</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <ul>
+                    <li><a href="https://aquacalcs.com/about/" target="_blank" rel="noopener">About</a></li>
+                    <li><a href="https://aquacalcs.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+                    <li><a href="https://aquacalcs.com/terms/" target="_blank" rel="noopener">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>水族箱计算结果（包括 stocking levels, water chemistry, and equipment sizing 均为近似参考值. 实际需求因鱼种、水源和缸体条件而异. 请务必研究具体鱼种需求并定期测试水质参数.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">本站使用 Cookie 改善体验。继续使用即表示同意。详见 <a href="https://aquacalcs.com/privacy/" target="_blank" rel="noopener" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">接受</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var numFish = parseFloat(inputs.num_fish) || 15;
+ var avgSize = parseFloat(inputs.avg_size) || 2;
+ var category = inputs.fish_category || 'Tropical Community';
+ var foodType = inputs.food_type || 'Flakes';
+ var feedsPerDay = 2;
+ var pinchesPerFish = 0.5;
+ if (category === 'Tropical Community') { feedsPerDay = 2; pinchesPerFish = 0.5; }
+ else if (category === '金鱼/锦鲤') { feedsPerDay = 2; pinchesPerFish = 0.75; }
+ else if (category === 'Cichlids') { feedsPerDay = 2; pinchesPerFish = 0.75; }
+ else if (category === 'Bettas') { feedsPerDay = 2; pinchesPerFish = 0.3; }
+ else if (category === 'Bottom Feeders') { feedsPerDay = 1; pinchesPerFish = 1; }
+ var sizeFactor = avgSize / 2;
+ var totalPinchesPerFeeding = numFish * pinchesPerFish * sizeFactor;
+ var totalPinchesPerDay = totalPinchesPerFeeding * feedsPerDay;
+ var gramsPerDay = totalPinchesPerDay * 0.15;
+ var gramsPerMonth = gramsPerDay * 30;
+ var fastDay = 'Yes — 1 fasting day per week recommended';
+ return {
+ results: [
+ {label: 'Feedings per Day', value: feedsPerDay, format: 'integer', decimals: 0},
+ {label: 'Pinches per Feeding', value: totalPinchesPerFeeding, format: 'number', decimals: 1},
+ {label: 'Food per Day (grams)', value: gramsPerDay, format: 'number', decimals: 1},
+ {label: 'Food per Month (grams)', value: gramsPerMonth, format: 'number', decimals: 0},
+ {label: 'Weekly Fasting Day?', value: fastDay, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Per Feeding (g)', 'Per Day (g)', 'Per Week (g)'],
+ datasets: [{label: 'Food Amount', data: [gramsPerDay / feedsPerDay, gramsPerDay, gramsPerDay * 6], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)', 'rgba(13, 59, 71, 0.6)'], borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)', 'rgba(13, 59, 71, 1)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

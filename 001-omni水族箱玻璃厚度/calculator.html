@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水族箱玻璃厚度计算器</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #fff;
+    --text: #1e1e1e;
+    --sub: #6e6e6e;
+    --accent: #1a7a5a;
+    --accent-light: #ecf7f2;
+    --border: #e5e2da;
+    --warn: #d45a2a;
+    --shadow: 0 1px 4px rgba(0,0,0,0.05);
+    --radius: 12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15px;
+  }
+
+  /* ====== 头部 ====== */
+  header {
+    background: #1a3c4a; color: #fff; padding: 32px 20px 28px; text-align: center;
+  }
+  header h1 { font-size: 1.6rem; font-weight: 700; }
+  header p { margin-top: 4px; opacity: 0.7; font-size: 0.9rem; }
+
+  /* ====== 容器 ====== */
+  .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+
+  /* ====== 卡片 ====== */
+  .card {
+    background: var(--card); border-radius: var(--radius);
+    padding: 20px 22px; margin-bottom: 14px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .card h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; display:flex; align-items:center; gap:6px; }
+  .card .subtitle { color: var(--sub); font-size: 0.82rem; margin-bottom: 12px; }
+
+  /* ====== 输入区 ====== */
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 500px) { .input-grid { grid-template-columns: 1fr; } }
+  .input-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px; color: var(--sub); }
+  .input-group input {
+    width: 100%; padding: 10px 12px; font-size: 1.05rem; font-family: inherit;
+    border: 1.5px solid var(--border); border-radius: 8px; background: #fafaf8;
+    transition: border 0.2s; text-align: center;
+  }
+  .input-group input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+  .input-group .unit-hint { text-align: center; font-size: 0.75rem; color: #aaa; margin-top: 2px; }
+  .input-group input::placeholder { color: #d0d0d0; }
+
+  .unit-toggle {
+    display: flex; gap: 4px; background: #eee; border-radius: 8px; padding: 3px;
+    margin-bottom: 14px; width: fit-content;
+  }
+  .unit-toggle button {
+    border: none; padding: 6px 18px; border-radius: 6px;
+    font-size: 0.82rem; cursor: pointer; background: transparent;
+    font-family: inherit; transition: all 0.2s;
+  }
+  .unit-toggle button.active { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.10); font-weight: 600; }
+
+  /* ====== 结果横幅 ====== */
+  .hero-banner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    padding: 0; margin-bottom: 14px;
+  }
+  @media (max-width: 500px) { .hero-banner { grid-template-columns: 1fr; } }
+  .hero-card {
+    background: var(--card); border-radius: var(--radius); padding: 18px 20px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+    text-align: center;
+  }
+  .hero-card .hero-label { font-size: 0.82rem; color: var(--sub); margin-bottom: 4px; }
+  .hero-card .hero-value { font-size: 2.4rem; font-weight: 800; color: var(--accent); line-height: 1.1; }
+  .hero-card .hero-unit { font-size: 0.9rem; color: var(--sub); font-weight: 400; }
+  .hero-card.bottom .hero-value { color: #1a3c4a; }
+
+  /* ====== 结果列表 ====== */
+  .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+  @media (max-width: 500px) { .results-grid { grid-template-columns: 1fr; } }
+  .res-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0; border-bottom: 1px dotted var(--border);
+  }
+  .res-item .res-label { font-size: 0.88rem; color: var(--text); }
+  .res-item .res-val { font-size: 1rem; font-weight: 700; color: #1a3c4a; text-align: right; }
+  .res-item .res-val small { font-weight: 400; color: var(--sub); font-size: 0.78rem; }
+
+  /* ====== 解释折叠 ====== */
+  .explain-toggle {
+    font-size: 0.8rem; color: var(--accent); cursor: pointer;
+    background: none; border: none; font-family: inherit; padding: 2px 0;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .explain-content {
+    font-size: 0.82rem; color: var(--sub); line-height: 1.6;
+    padding: 8px 12px; margin-top: 6px; background: var(--accent-light);
+    border-radius: 6px; display: none;
+  }
+  .explain-content.open { display: block; }
+
+  /* ====== 步骤 ====== */
+  .step { margin-bottom: 10px; }
+  .step-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; cursor: pointer; user-select: none;
+    font-weight: 600; font-size: 0.92rem;
+    background: #f4f3f0; border-radius: 8px;
+    transition: background 0.15s;
+  }
+  .step-header:hover { background: #ecebe7; }
+  .step-header .num {
+    display: inline-flex; width: 24px; height: 24px;
+    align-items: center; justify-content: center;
+    background: var(--accent); color: #fff; border-radius: 50%;
+    font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+  }
+  .step-header .arrow { margin-left: auto; font-size: 0.7rem; transition: transform 0.2s; color: #999; }
+  .step.open .step-header .arrow { transform: rotate(90deg); }
+  .step-body {
+    padding: 12px 16px; border: 1px solid var(--border); border-top: none;
+    border-radius: 0 0 8px 8px; font-size: 0.88rem; line-height: 1.7;
+    display: none;
+  }
+  .step.open .step-body { display: block; }
+
+  /* ====== 公式 ====== */
+  .formula-box {
+    background: #fafaf8; border: 1px solid var(--border); border-radius: 6px;
+    padding: 10px 14px; margin: 6px 0; font-family: "SF Mono","Cascadia Code","Consolas",monospace;
+    font-size: 0.85rem; color: #3a3a3a; line-height: 1.7; overflow-x: auto;
+  }
+  .formula-box .hl { color: var(--accent); font-weight: 700; }
+
+  /* ====== 常量表 ====== */
+  .const-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .const-table th,.const-table td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  .const-table th { font-weight: 600; color: var(--sub); font-size: 0.78rem; }
+
+  /* ====== 通知 ====== */
+  .validation-msg {
+    padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 14px;
+    background: var(--accent-light); color: var(--accent);
+  }
+
+  /* ====== Footer ====== */
+  footer {
+    text-align: center; color: #aaa; font-size: 0.78rem;
+    padding: 24px 0; border-top: 1px solid var(--border); margin-top: 16px;
+  }
+  footer a { color: var(--accent); }
+
+  .math-note {
+    font-size: 0.82rem; color: var(--sub);
+    border-left: 2px solid var(--border); padding-left: 10px; margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🐠 水族箱玻璃厚度计算器</h1>
+  <p>基于平板弯曲理论 · 附带逐步数学推导</p>
+</header>
+
+<div class="container">
+
+<!-- ====== 输入卡片 ====== -->
+<div class="card">
+  <h2>📏 水族箱尺寸</h2>
+  <p class="subtitle">输入内部尺寸，单位毫米（mm）</p>
+
+  <div class="unit-toggle">
+    <button id="btnMetric" class="active" onclick="setUnit('metric')">公制 (mm/kg)</button>
+    <button id="btnImperial" onclick="setUnit('imperial')">英制 (in/lb)</button>
+  </div>
+
+  <div id="validationMsg" class="validation-msg">👆 请在上方输入水族箱的长、宽、高</div>
+
+  <div class="input-grid">
+    <div class="input-group">
+      <label for="inLength">长度 L</label>
+      <input type="number" id="inLength" value="" placeholder="600" min="1" step="1" oninput="recalc()">
+      <div class="unit-hint" id="unitLen">mm</div>
+    </div>
+    <div class="input-group">
+      <label for="inWidth">宽度 W</label>
+      <input type="number" id="inWidth" value="" placeholder="300" min="1" step="1" oninput="recalc()">
+      <div class="unit-hint" id="unitWid">mm</div>
+    </div>
+    <div class="input-group">
+      <label for="inHeight">高度 H</label>
+      <input type="number" id="inHeight" value="" placeholder="400" min="1" step="1" oninput="recalc()">
+      <div class="unit-hint" id="unitHei">mm</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 核心结果横幅 ====== -->
+<div class="hero-banner">
+  <div class="hero-card">
+    <div class="hero-label">🔹 侧板玻璃厚度（前/后/左/右）</div>
+    <div class="hero-value" id="heroSideT">—</div>
+    <div class="hero-unit">mm</div>
+  </div>
+  <div class="hero-card bottom">
+    <div class="hero-label">🔸 底板玻璃厚度</div>
+    <div class="hero-value" id="heroBottomT">—</div>
+    <div class="hero-unit">mm</div>
+  </div>
+</div>
+
+<!-- ====== 其他结果 ====== -->
+<div class="card">
+  <h2>📊 全部计算结果</h2>
+  <p class="subtitle">点击 <u>为什么？</u> 查看每个量的详细解释</p>
+
+  <div class="results-grid">
+    <div class="res-item">
+      <span class="res-label">📐 体积</span>
+      <span class="res-val" id="resVolume">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">📏 表面积（5面）</span>
+      <span class="res-val" id="resArea">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">💧 水重量</span>
+      <span class="res-val" id="resWaterWeight">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">🪟 玻璃重量</span>
+      <span class="res-val" id="resGlassWeight">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">⚖️ 总重量（满载）</span>
+      <span class="res-val" id="resTotalWeight">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">📉 侧板挠度</span>
+      <span class="res-val" id="resSideDeflection">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">📉 底板挠度</span>
+      <span class="res-val" id="resBottomDeflection">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">⚡ 许用弯曲应力</span>
+      <span class="res-val" id="resBendingStress">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">🔢 长高比 LHr</span>
+      <span class="res-val" id="resLHr">—</span>
+    </div>
+    <div class="res-item">
+      <span class="res-label">🔢 长宽比 LWr</span>
+      <span class="res-val" id="resLWr">—</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px; text-align: center; padding-top: 12px; border-top: 1px solid var(--border);">
+    <span id="safetyBadge" style="display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">—</span>
+  </div>
+</div>
+
+<!-- ====== 计算步骤 ====== -->
+<div class="card">
+  <h2>🔬 逐步计算过程</h2>
+  <p class="subtitle">点击每一步展开查看公式与中间值。标记 ⭐ 的为核心步骤</p>
+
+  <!-- 步骤 1 -->
+  <div class="step open">
+    <div class="step-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="num">1</span> 物理常量
+      <span class="arrow">▶</span>
+    </div>
+    <div class="step-body">
+      <table class="const-table">
+        <tr><th>符号</th><th>名称</th><th>值</th><th>说明</th></tr>
+        <tr><td>σᵤ</td><td>玻璃抗拉强度</td><td>19.2 MPa</td><td>退火平板玻璃</td></tr>
+        <tr><td>SF</td><td>安全系数</td><td>3.8</td><td>长期使用余量</td></tr>
+        <tr><td>σ<sub>allow</sub></td><td>许用弯曲应力</td><td id="valBendingStress">—</td><td>= σᵤ / SF ≈ 5.05 MPa</td></tr>
+        <tr><td>ρ<sub>glass</sub></td><td>玻璃密度</td><td>2500 kg/m³</td><td>钠钙玻璃</td></tr>
+        <tr><td>ρ<sub>water</sub></td><td>水密度</td><td>998 kg/m³</td><td>约 20°C 淡水</td></tr>
+        <tr><td>E</td><td>玻璃弹性模量</td><td>69000 MPa</td><td>抵抗弯曲的能力</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 步骤 2 -->
+  <div class="step open">
+    <div class="step-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="num">2</span> 输入尺寸 & 比例
+      <span class="arrow">▶</span>
+    </div>
+    <div class="step-body">
+      <div>长度 L = <strong id="stepL">—</strong> mm</div>
+      <div>宽度 W = <strong id="stepW">—</strong> mm</div>
+      <div>高度 H = <strong id="stepH">—</strong> mm</div>
+      <div style="margin-top:6px">长高比 LHr = L/H = <strong id="stepLHr">—</strong></div>
+      <div>长宽比 LWr = L/W = <strong id="stepLWr">—</strong></div>
+    </div>
+  </div>
+
+  <!-- 步骤 3 ⭐ 侧板厚度 -->
+  <div class="step open">
+    <div class="step-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="num">⭐</span> 侧板玻璃厚度（核心）
+      <span class="arrow">▶</span>
+    </div>
+    <div class="step-body">
+      <div class="formula-box">
+t<sub>side</sub> = <span class="hl">(√10 / 1000)</span> × √(β<sub>side</sub> × H³ / σ<sub>allow</sub>)
+      </div>
+      <div>β<sub>side</sub> = <strong id="stepBetaSide">—</strong>（基于 LHr 的分段多项式）</div>
+      <div style="margin-top:8px">侧板厚度 = <strong id="stepSideT">—</strong> mm</div>
+      <div class="math-note">
+        <strong>为什么是 H³？</strong> 静水压力随深度线性增大，合力 ∝ H²，
+        作用点在 H/3 处，弯矩 ∝ H³，厚度 ∝ √(弯矩) ∝ H<sup>1.5</sup>。
+      </div>
+      <button class="explain-toggle" onclick="toggleExplain('explainBetaSide')">📖 β 系数的完整多项式 →</button>
+      <div class="explain-content" id="explainBetaSide">
+        β<sub>side</sub> 由 LHratio 决定：<br>
+        · LHr &lt; 0.5 → β = 0.085（极矮缸）<br>
+        · LHr &gt; 3.0 → β = 0.37（极高缸）<br>
+        · 0.5 ≤ LHr ≤ 3.0 → 4 次多项式：<br>
+        &nbsp;&nbsp;(439/20000)·LHr⁴ − (131/800)·LHr³ + (38079/100000)·LHr² − (213/1250)·LHr + 2433/25000
+      </div>
+    </div>
+  </div>
+
+  <!-- 步骤 4 ⭐ 底板厚度 -->
+  <div class="step open">
+    <div class="step-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="num">⭐</span> 底板玻璃厚度（核心）
+      <span class="arrow">▶</span>
+    </div>
+    <div class="step-body">
+      <div class="formula-box">
+t<sub>bottom</sub> = <span class="hl">(√10 / 1000)</span> × √(β<sub>bottom</sub> × H³ / σ<sub>allow</sub>)
+      </div>
+      <div>β<sub>bottom</sub> = <strong id="stepBetaBottom">—</strong>（基于 LWr 的分段多项式）</div>
+      <div style="margin-top:8px">底板厚度 = <strong id="stepBottomT">—</strong> mm</div>
+      <div class="math-note">
+        底板承受均匀水压（整缸水柱压在底面），与侧板的三角形分布不同→使用不同 β 系数。
+      </div>
+      <button class="explain-toggle" onclick="toggleExplain('explainBetaBottom')">📖 β 系数的完整多项式 →</button>
+      <div class="explain-content" id="explainBetaBottom">
+        β<sub>bottom</sub> 由 LWratio 决定：<br>
+        · LWr &lt; 1.0 → β = 0.453<br>
+        · LWr &gt; 3.0 → β = 0.7134<br>
+        · 1.0 ≤ LWr ≤ 3.0 → 3 次多项式：<br>
+        &nbsp;&nbsp;(619/12500)·LWr³ − (27783/100000)·LWr² + (14943/25000)·LWr + 8257/100000
+      </div>
+    </div>
+  </div>
+
+  <!-- 步骤 5 挠度 -->
+  <div class="step">
+    <div class="step-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="num">5</span> 挠度（弯曲变形）
+      <span class="arrow">▶</span>
+    </div>
+    <div class="step-body">
+      <div class="formula-box">
+δ = α × H⁵ × <span class="hl">9.81×10⁻⁶</span> / (<span class="hl">69000</span> × t³)
+      </div>
+      <div>α<sub>side</sub> = <strong id="stepAlphaSide">—</strong>，α<sub>bottom</sub> = <strong id="stepAlphaBottom">—</strong></div>
+      <div style="margin-top:6px">侧板挠度 = <strong id="stepSideD">—</strong> mm</div>
+      <div>底板挠度 = <strong id="stepBottomD">—</strong> mm</div>
+      <div class="math-note">
+        <strong>∝ H⁵ / t³</strong>：挠度对高度极度敏感——高度翻倍，挠度增大 32 倍。
+        安全判据：挠度 &lt; 厚度/2。
+      </div>
+      <button class="explain-toggle" onclick="toggleExplain('explainAlpha')">📖 α 系数的完整多项式 →</button>
+      <div class="explain-content" id="explainAlpha">
+        α<sub>side</sub>（基于 LHr）：<br>
+        · LHr &lt; 0.5 → 0.003 · LHr &gt; 3.0 → 0.067 · 否则 4 次多项式<br><br>
+        α<sub>bottom</sub>（基于 LWr）：<br>
+        · LWr &lt; 1.0 → 0.077 · LWr &gt; 3.0 → 0.1335 · 否则 3 次多项式
+      </div>
+    </div>
+  </div>
+
+  <!-- 步骤 6 重量 -->
+  <div class="step open">
+    <div class="step-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="num">6</span> 体积 & 重量
+      <span class="arrow">▶</span>
+    </div>
+    <div class="step-body">
+      <div>体积 V = L × W × H = <strong id="stepVol">—</strong></div>
+      <div>表面积 A = 2HL + 2HW + LW = <strong id="stepArea">—</strong></div>
+      <div style="margin-top:8px">
+        水重量 = V × 998 / 10⁹ = <strong id="stepWaterW">—</strong> kg
+      </div>
+      <div>
+        玻璃重量 = 2500/10⁹ × (2·t<sub>side</sub>·W·H + 2·t<sub>side</sub>·L·H + t<sub>bottom</sub>·L·W)
+        = <strong id="stepGlassW">—</strong> kg
+      </div>
+      <div style="margin-top:4px; font-weight:700">
+        总重量 = 水 + 玻璃 = <strong id="stepTotalW">—</strong> kg
+      </div>
+      <div class="math-note">
+        公式中 10⁹ = mm³ → m³ 的换算系数（1 m³ = 10⁹ mm³）。
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  公式来源于 Omni Calculator 的平板弯曲理论算法 ·
+  仅供学习参考，实际制作请咨询专业人士
+</footer>
+
+<script>
+// ================================================================
+//  物理常量
+// ================================================================
+const C = {
+  glassTensileStrength: 19.2,  // MPa
+  safeFactor: 3.8,
+  glassDensity: 2500,          // kg/m³
+  waterDensity: 998,           // kg/m³
+  glassElasticModulus: 69000,  // MPa
+};
+const MM_PER_INCH = 25.4;
+const KG_TO_LB = 2.20462;
+
+let currentUnit = 'metric';
+
+// ================================================================
+//  数学工具
+// ================================================================
+const pow = Math.pow, sqrt = Math.sqrt;
+
+// ================================================================
+//  α / β 系数
+// ================================================================
+function alphaCoeffSide(LHr) {
+  if (LHr < 0.5) return 0.003;
+  if (LHr > 3.0) return 0.067;
+  return (37/10000)*pow(LHr,4) - (2761/100000)*pow(LHr,3) + (77/1250)*pow(LHr,2) - (1299/100000)*LHr - (271/100000);
+}
+function betaCoeffSide(LHr) {
+  if (LHr < 0.5) return 0.085;
+  if (LHr > 3.0) return 0.37;
+  return (439/20000)*pow(LHr,4) - (131/800)*pow(LHr,3) + (38079/100000)*pow(LHr,2) - (213/1250)*LHr + (2433/25000);
+}
+function alphaCoeffBottom(LWr) {
+  if (LWr < 1.0) return 0.077;
+  if (LWr > 3.0) return 0.1335;
+  return (1047/100000)*pow(LWr,3) - (5823/100000)*pow(LWr,2) + (1251/10000)*LWr - (537/1000000);
+}
+function betaCoeffBottom(LWr) {
+  if (LWr < 1.0) return 0.453;
+  if (LWr > 3.0) return 0.7134;
+  return (619/12500)*pow(LWr,3) - (27783/100000)*pow(LWr,2) + (14943/25000)*LWr + (8257/100000);
+}
+
+// ================================================================
+//  核心计算
+// ================================================================
+function calcBendingStress() { return C.glassTensileStrength / C.safeFactor; }
+
+function calcThickness(H, beta, sigma) {
+  // engine 原生公式: (√10/1000) × √(H³ × β / σ)，H 单位 mm，输出 mm
+  return (sqrt(10)/1000) * sqrt(beta * pow(H,3) / sigma);
+}
+
+function calcDeflection(H, alpha, t) {
+  // engine 原生公式: α × H⁵ × 9.81×10⁻⁶ / (69000 × t³)
+  return alpha * pow(H,5) * 9.81e-6 / (C.glassElasticModulus * pow(t,3));
+}
+
+// ================================================================
+//  主计算
+// ================================================================
+function recalc() {
+  let L = parseFloat(document.getElementById('inLength').value);
+  let W = parseFloat(document.getElementById('inWidth').value);
+  let H = parseFloat(document.getElementById('inHeight').value);
+
+  const msgEl = document.getElementById('validationMsg');
+
+  if (isNaN(L) || isNaN(W) || isNaN(H)) {
+    msgEl.textContent = '👆 请在上方输入水族箱的长、宽、高';
+    msgEl.style.background = '#ecf7f2'; msgEl.style.color = '#1a7a5a';
+    return;
+  }
+  if (L <= 0 || W <= 0 || H <= 0) {
+    msgEl.textContent = '⚠️ 所有尺寸必须大于 0';
+    msgEl.style.background = '#fef0e0'; msgEl.style.color = '#d45a2a';
+    return;
+  }
+  msgEl.textContent = ''; msgEl.style.background = 'transparent';
+
+  // 英制 → mm
+  if (currentUnit === 'imperial') { L *= MM_PER_INCH; W *= MM_PER_INCH; H *= MM_PER_INCH; }
+  if (L < W) {
+    msgEl.textContent = '💡 长度 < 宽度，但计算仍可继续';
+    msgEl.style.background = '#fef8f0'; msgEl.style.color = '#b08030';
+  }
+
+  const sigmaAllow = calcBendingStress();
+  const LHr = L / H, LWr = L / W;
+  const betaS = betaCoeffSide(LHr), betaB = betaCoeffBottom(LWr);
+  const tSide = calcThickness(H, betaS, sigmaAllow);
+  const tBottom = calcThickness(H, betaB, sigmaAllow);
+  const alphaS = alphaCoeffSide(LHr), alphaB = alphaCoeffBottom(LWr);
+  const deflSide = calcDeflection(H, alphaS, tSide);
+  const deflBottom = calcDeflection(H, alphaB, tBottom);
+  const volume = L * W * H;
+  const area = 2*H*L + 2*H*W + L*W;
+  const waterW = volume * C.waterDensity / 1e9;
+  const glassW = (2*tSide*L*H + 2*tSide*W*H + tBottom*L*W) * C.glassDensity / 1e9;
+  const totalW = waterW + glassW;
+
+  // ---- 更新 UI ----
+  const mu = currentUnit === 'imperial';
+  const toLen = mu ? v => (v/MM_PER_INCH).toFixed(2) + ' in' : v => v.toFixed(0) + ' mm';
+  const toWt  = mu ? v => (v*KG_TO_LB).toFixed(1) + ' lb' : v => v.toFixed(1) + ' kg';
+  const toVol = mu ? v => (v/3785412).toFixed(1) + ' US gal' : v => (v/1e6).toFixed(1) + ' L';
+  const toArea= mu ? v => (v/pow(MM_PER_INCH,2)).toFixed(0) + ' in²' : v => (v/100).toFixed(0) + ' cm²';
+
+  // 横幅
+  document.getElementById('heroSideT').textContent = tSide.toFixed(2);
+  document.getElementById('heroBottomT').textContent = tBottom.toFixed(2);
+
+  // 结果列表
+  document.getElementById('resVolume').innerHTML = toVol(volume);
+  document.getElementById('resArea').textContent = toArea(area);
+  document.getElementById('resWaterWeight').textContent = toWt(waterW);
+  document.getElementById('resGlassWeight').textContent = toWt(glassW);
+  document.getElementById('resTotalWeight').textContent = toWt(totalW);
+  document.getElementById('resSideDeflection').textContent = (mu ? deflSide/MM_PER_INCH : deflSide).toFixed(3) + (mu?' in':' mm');
+  document.getElementById('resBottomDeflection').textContent = (mu ? deflBottom/MM_PER_INCH : deflBottom).toFixed(3) + (mu?' in':' mm');
+  document.getElementById('resBendingStress').textContent = sigmaAllow.toFixed(2) + ' MPa';
+  document.getElementById('resLHr').textContent = LHr.toFixed(3);
+  document.getElementById('resLWr').textContent = LWr.toFixed(3);
+
+  // 安全徽章
+  const badge = document.getElementById('safetyBadge');
+  if (deflSide < tSide/2 && deflBottom < tBottom/2) {
+    badge.textContent = '✅ 挠度 < 厚度的一半，安全'; badge.style.background = '#ecf7f2'; badge.style.color = '#1a7a5a';
+  } else {
+    badge.textContent = '⚠️ 挠度偏大，建议加厚或降低高度'; badge.style.background = '#fef0e0'; badge.style.color = '#d45a2a';
+  }
+
+  // 步骤
+  document.getElementById('valBendingStress').textContent = sigmaAllow.toFixed(2) + ' MPa';
+  document.getElementById('stepL').textContent = L.toFixed(0);
+  document.getElementById('stepW').textContent = W.toFixed(0);
+  document.getElementById('stepH').textContent = H.toFixed(0);
+  document.getElementById('stepLHr').textContent = LHr.toFixed(4);
+  document.getElementById('stepLWr').textContent = LWr.toFixed(4);
+  document.getElementById('stepBetaSide').textContent = betaS.toFixed(4);
+  document.getElementById('stepBetaBottom').textContent = betaB.toFixed(4);
+  document.getElementById('stepSideT').textContent = tSide.toFixed(3);
+  document.getElementById('stepBottomT').textContent = tBottom.toFixed(3);
+  document.getElementById('stepAlphaSide').textContent = alphaS.toFixed(4);
+  document.getElementById('stepAlphaBottom').textContent = alphaB.toFixed(4);
+  document.getElementById('stepSideD').textContent = deflSide.toFixed(4);
+  document.getElementById('stepBottomD').textContent = deflBottom.toFixed(4);
+  document.getElementById('stepVol').textContent = (volume/1e6).toFixed(1) + ' L (' + volume.toLocaleString() + ' mm³)';
+  document.getElementById('stepArea').textContent = (area/100).toFixed(0) + ' cm²';
+  document.getElementById('stepWaterW').textContent = waterW.toFixed(1);
+  document.getElementById('stepGlassW').textContent = glassW.toFixed(1);
+  document.getElementById('stepTotalW').textContent = totalW.toFixed(1);
+}
+
+// ================================================================
+//  单位切换
+// ================================================================
+function setUnit(unit) {
+  if (currentUnit === unit) return;
+  currentUnit = unit;
+  document.getElementById('btnMetric').classList.toggle('active', unit==='metric');
+  document.getElementById('btnImperial').classList.toggle('active', unit==='imperial');
+
+  const L = parseFloat(document.getElementById('inLength').value) || 0;
+  const W = parseFloat(document.getElementById('inWidth').value) || 0;
+  const H = parseFloat(document.getElementById('inHeight').value) || 0;
+
+  if (unit === 'imperial') {
+    const toIn = v => v ? (v/MM_PER_INCH).toFixed(1) : '';
+    document.getElementById('inLength').value = toIn(L);
+    document.getElementById('inWidth').value  = toIn(W);
+    document.getElementById('inHeight').value = toIn(H);
+    document.getElementById('inLength').placeholder = '24';
+    document.getElementById('inWidth').placeholder  = '12';
+    document.getElementById('inHeight').placeholder = '16';
+    ['unitLen','unitWid','unitHei'].forEach(id => document.getElementById(id).textContent = 'in');
+  } else {
+    const toMm = v => v ? (v*MM_PER_INCH).toFixed(0) : '';
+    document.getElementById('inLength').value = toMm(L);
+    document.getElementById('inWidth').value  = toMm(W);
+    document.getElementById('inHeight').value = toMm(H);
+    document.getElementById('inLength').placeholder = '600';
+    document.getElementById('inWidth').placeholder  = '300';
+    document.getElementById('inHeight').placeholder = '400';
+    ['unitLen','unitWid','unitHei'].forEach(id => document.getElementById(id).textContent = 'mm');
+  }
+  recalc();
+}
+
+// ================================================================
+//  解释文字折叠
+// ================================================================
+function toggleExplain(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+recalc();
+</script>
+</body>
+</html>
