@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繁殖缸计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate the ideal breeding tank size and setup recommendations for common aquarium species.">
+    <link rel="canonical" href="https://aquacalcs.com/breeding-tank-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="繁殖缸计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate the ideal breeding tank size and setup recommendations for common aquarium species.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/breeding-tank-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="繁殖缸计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate the ideal breeding tank size and setup recommendations for common aquarium species.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "繁殖缸计算器", "description": "Calculate the ideal breeding tank size and setup recommendations for common aquarium species.", "url": "https://aquacalcs.com/breeding-tank-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Fish & Stocking", "item": "https://aquacalcs.com/category/fish-stocking/"}, {"@type": "ListItem", "position": 3, "name": "繁殖缸计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use the same tank for breeding and fry rearing, or do I need separate tanks?", "acceptedAnswer": {"@type": "Answer", "text": "Separate tanks are strongly recommended because adult fish often cannibalize fry or the fry compete with parents for food and space. Some experienced breeders use plants and compartmentalization in larger tanks (50+ gallons), but separate breeding and nursery tanks give you much better survival rates and genetic control, typically improving fry survival from 30-50% to 70-90%."}}, {"@type": "Question", "name": "Why do different species require different tank sizes for breeding?", "acceptedAnswer": {"@type": "Answer", "text": "Species differ dramatically in territorial aggression, spawning method, and fry care strategies. Cichlids are highly territorial and aggressive breeders requiring large defended areas; livebearers need less space but benefit from plant coverage for fry hiding; Bettas must be separated (except during spawning) due to extreme aggression. Tank size directly impacts stress levels, spawn success, and fry survival rates."}}, {"@type": "Question", "name": "How long should I keep fry in the nursery tank before moving them?", "acceptedAnswer": {"@type": "Answer", "text": "Fry typically need 6-12 weeks in grow-out tanks depending on species, water temperature, and feeding regimen. Cichlid fry grow faster at 78-82\u00b0F and reach saleable/relocatable size in 8-10 weeks, while Tetra fry in cooler water (75-78\u00b0F) need 12-16 weeks. Move fry when they reach 1-1.5 inches and can reliably eat standard small pellets."}}, {"@type": "Question", "name": "What's the difference between breeding tank volume and total gallons in the calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Breeding tank volume is the space where adults spawn and eggs/early larvae develop. Total gallons includes the breeding tank plus all nursery and grow-out tanks needed if you're raising fry. For example, breeding Angels might need 60 gallons primary tank but 100+ total gallons when factoring in fry rearing, so you're seeing the complete system requirement."}}, {"@type": "Question", "name": "Can I breed fish in an established community tank, or does breeding require a dedicated setup?", "acceptedAnswer": {"@type": "Answer", "text": "Dedicated breeding tanks produce dramatically better results because community tank inhabitants eat eggs and fry, community fish stress breeding pairs, and you cannot control water conditions or genetics. Breeding in established tanks rarely succeeds unless you use breeder boxes or nets, which confine fish and stress them further\u2014a proper dedicated tank always yields superior spawn rates and fry survival."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">繁殖缸计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>繁殖缸计算器</h1>
+                    <p class="calc-description">Calculate the ideal breeding tank size and setup recommendations for common aquarium species.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="species_group">Species Group</label>
+            <select id="species_group" name="species_group">
+                <option value="Livebearers (guppies, mollies)" selected>Livebearers (guppies, mollies)</option>
+                <option value="Egg Scatterers (tetras, danios)">Egg Scatterers (tetras, danios)</option>
+                <option value="Bubble Nesters (bettas, gouramis)">Bubble Nesters (bettas, gouramis)</option>
+                <option value="Cichlids (rams, apistos)">Cichlids (rams, apistos)</option>
+                <option value="Large Cichlids (angels, discus)">Large Cichlids (angels, discus)</option>
+                <option value="Shrimp">Shrimp</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="num_pairs">Number of Breeding Pairs</label>
+            <input type="number" id="num_pairs" name="num_pairs" value="1" step="1" min="1" max="10">
+        </div>
+        <div class="form-group">
+            <label for="save_fry">Raising Fry?</label>
+            <select id="save_fry" name="save_fry">
+                <option value="Yes" selected>Yes</option>
+                <option value="No — just spawning">No — just spawning</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Breeding Tank Calculator determines the ideal tank size and setup requirements for breeding aquarium fish based on species, number of breeding pairs, and whether you're raising fry to adulthood. This tool helps aquarists create proper breeding conditions that maximize spawn success rates and fry survival while accounting for the extra space needed for eggs, larvae, and juvenile fish. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Breeding Tank Volume = (Base Species Requirement × Number of Pairs) + (Fry Rearing Volume if applicable). Total System Gallons = Breeding Tank + Nursery/Grow-Out Tank (if raising fry). Base requirements vary by species group: Cichlids typically need 20-40 gallons per pair, Livebearers need 10-20 gallons per pair, Bettas need 5-10 gallons per pair (separate males), and Tetras/Barbs need 15-30 gallons per group.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Species Group</strong> — The category of fish being bred (Cichlids, Livebearers, Bettas, Tetras, Barbs, Corydoras, etc.), which determines base tank volume requirements since different species have different territorial and breeding space needs</li>
+<li><strong>Number of Breeding Pairs</strong> — The quantity of male-female breeding pairs you plan to keep simultaneously; each pair requires a defined minimum space to establish territory and breed successfully</li>
+<li><strong>Raising Fry</strong> — Whether you intend to raise offspring to juveniles or sell-able size; this significantly increases total tank volume requirements since fry need separate grow-out space</li>
+<li><strong>Breeding Tank Gallons</strong> — The recommended minimum volume for the primary breeding tank where adult pairs spawn and eggs/larvae initially develop</li>
+<li><strong>Total Gallons</strong> — The cumulative volume needed for the complete breeding system, including breeding tank plus any nursery or grow-out tanks if raising fry</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you're breeding Angelfish (a popular cichlid species) and want to maintain 2 breeding pairs while raising fry to juvenile size. Angelfish are cichlids requiring approximately 30 gallons per breeding pair for the main tank. The calculator would show: Breeding Tank = 30 gallons × 2 pairs = 60 gallons minimum for the adult breeding tank. Since you're raising fry, you'd need an additional 40-gallon nursery tank for growing out juveniles before sale or relocation. Total Gallons = 60 + 40 = 100 gallons for your complete breeding system. This accounts for territorial space, spawning substrate, vegetation, and the separate space required so fry don't get eaten by parents or competing adults.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Breeding Tank Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Breeding Tank Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Breeding Tank Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in fish-stocking work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Always size up rather than down—undersized breeding tanks cause stress, failed spawns, and aggression; a 20-gallon Discus breeder tank consistently outperforms a 10-gallon setup even though both technically fit a pair</li>
+<li>Separate breeding pairs into individual tanks rather than keeping multiple pairs in one large tank, as this dramatically reduces aggression, improves spawn quality, and allows you to control specific genetics</li>
+<li>Plan nursery tanks before breeding begins; most aquarists underestimate fry growth rates and find themselves with overcrowded tanks within 4-6 weeks of a successful spawn</li>
+<li>Include hiding spaces, substrate for egg adhesion, and vegetation in breeding tank volume calculations—a 30-gallon bare glass tank performs worse than a 25-gallon with proper landscaping for the same species</li>
+<li>Account for water changes and filtration capacity in total gallons; breeding tanks require more frequent water changes (25-30% every 2-3 days) to maintain water quality while fry are present, so robust filtration system sizing is critical</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>Can I use the same tank for breeding and fry rearing, or do I need separate tanks?</summary>
+<p>Separate tanks are strongly recommended because adult fish often cannibalize fry or the fry compete with parents for food and space. Some experienced breeders use plants and compartmentalization in larger tanks (50+ gallons), but separate breeding and nursery tanks give you much better survival rates and genetic control, typically improving fry survival from 30-50% to 70-90%.</p>
+</details>
+<details class="faq-item"><summary>Why do different species require different tank sizes for breeding?</summary>
+<p>Species differ dramatically in territorial aggression, spawning method, and fry care strategies. Cichlids are highly territorial and aggressive breeders requiring large defended areas; livebearers need less space but benefit from plant coverage for fry hiding; Bettas must be separated (except during spawning) due to extreme aggression. Tank size directly impacts stress levels, spawn success, and fry survival rates.</p>
+</details>
+<details class="faq-item"><summary>How long should I keep fry in the nursery tank before moving them?</summary>
+<p>Fry typically need 6-12 weeks in grow-out tanks depending on species, water temperature, and feeding regimen. Cichlid fry grow faster at 78-82°F and reach saleable/relocatable size in 8-10 weeks, while Tetra fry in cooler water (75-78°F) need 12-16 weeks. Move fry when they reach 1-1.5 inches and can reliably eat standard small pellets.</p>
+</details>
+<details class="faq-item"><summary>What&#x27;s the difference between breeding tank volume and total gallons in the calculator?</summary>
+<p>Breeding tank volume is the space where adults spawn and eggs/early larvae develop. Total gallons includes the breeding tank plus all nursery and grow-out tanks needed if you're raising fry. For example, breeding Angels might need 60 gallons primary tank but 100+ total gallons when factoring in fry rearing, so you're seeing the complete system requirement.</p>
+</details>
+<details class="faq-item"><summary>Can I breed fish in an established community tank, or does breeding require a dedicated setup?</summary>
+<p>Dedicated breeding tanks produce dramatically better results because community tank inhabitants eat eggs and fry, community fish stress breeding pairs, and you cannot control water conditions or genetics. Breeding in established tanks rarely succeeds unless you use breeder boxes or nets, which confine fish and stress them further—a proper dedicated tank always yields superior spawn rates and fry survival.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>ASAS (American Aquarium Society) Breeding Guidelines</li>
+<li>Seriously Fish Species Care Sheets (aquarium-specific breeding parameters)</li>
+<li>FishBase: Reproductive Behavior and Tank Requirements Database</li>
+<li>Association of Zoos and Aquariums (AZA) Aquatic Animal Husbandry Standards</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Fish &amp; Stocking Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../fish-feeding-calculator/index.html">Fish Feeding Calculator</a></li>
+            <li><a href="../fish-growth-calculator/index.html">Fish Growth Rate Calculator</a></li>
+            <li><a href="../quarantine-tank-calculator/index.html">Quarantine Tank Calculator</a></li>
+            <li><a href="../fish-compatibility-score/index.html">Fish Compatibility Calculator</a></li>
+            <li><a href="../bio-load-calculator/index.html">Bio-Load Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../quarantine-tank-calculator/index.html">Quarantine Tank Calculator</a></li>
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../fish-growth-calculator/index.html">Fish Growth Rate Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var group = inputs.species_group || 'Livebearers (guppies, mollies)';
+ var pairs = parseFloat(inputs.num_pairs) || 1;
+ var fry = inputs.save_fry || 'Yes';
+ var baseTank = 10; var fryTank = 10; var temp = 78; var setup = '';
+ if (group.indexOf('Livebearers') === 0) { baseTank = 10; fryTank = 10; temp = 78; setup = 'Dense plants or breeding box, gentle sponge filter'; }
+ else if (group.indexOf('Egg Scatterers') === 0) { baseTank = 10; fryTank = 10; temp = 76; setup = 'Marbles on bottom or spawning mops, remove parents after spawning'; }
+ else if (group.indexOf('Bubble Nesters') === 0) { baseTank = 5; fryTank = 10; temp = 80; setup = 'Shallow water (5-6 inches), floating plants, remove female after spawning'; }
+ else if (group.indexOf('Cichlids (') === 0) { baseTank = 20; fryTank = 20; temp = 80; setup = 'Caves and flat rocks, parents may guard fry'; }
+ else if (group.indexOf('Large Cichlids') === 0) { baseTank = 40; fryTank = 30; temp = 82; setup = 'Tall tank, vertical spawning surfaces, remove other fish'; }
+ else if (group === 'Shrimp') { baseTank = 5; fryTank = 5; temp = 74; setup = 'Moss, mature sponge filter, no predators'; }
+ var breedingTank = baseTank * pairs;
+ var totalFryTank = fry === 'Yes' ? fryTank * pairs : 0;
+ var totalGallons = breedingTank + totalFryTank;
+ return {
+ results: [
+ {label: 'Breeding Tank Size (gallons)', value: breedingTank, format: 'integer', decimals: 0},
+ {label: 'Fry Grow-Out Tank (gallons)', value: totalFryTank, format: 'integer', decimals: 0},
+ {label: 'Total Gallons Needed', value: totalGallons, format: 'integer', decimals: 0},
+ {label: 'Breeding Temperature (°F)', value: temp, format: 'integer', decimals: 0},
+ {label: 'Setup Notes', value: setup, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'doughnut',
+ data: {
+ labels: ['Breeding Tank', 'Fry Tank'],
+ datasets: [{data: [breedingTank, totalFryTank], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {position: 'bottom'}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

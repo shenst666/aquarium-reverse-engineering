@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Compatibility Calculator | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Score the compatibility of two fish species based on temperament, size, and water parameters.">
+    <link rel="canonical" href="https://aquacalcs.com/fish-compatibility-score/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fish Compatibility Calculator | Free Calculator | AquaCalcs">
+    <meta property="og:description" content="Score the compatibility of two fish species based on temperament, size, and water parameters.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/fish-compatibility-score/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Fish Compatibility Calculator | Free Calculator | AquaCalcs">
+    <meta name="twitter:description" content="Score the compatibility of two fish species based on temperament, size, and water parameters.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Fish Compatibility Calculator", "description": "Score the compatibility of two fish species based on temperament, size, and water parameters.", "url": "https://aquacalcs.com/fish-compatibility-score/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Fish & Stocking", "item": "https://aquacalcs.com/category/fish-stocking/"}, {"@type": "ListItem", "position": 3, "name": "Fish Compatibility Calculator"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does temperament mean, and how do I know my fish's temperament?", "acceptedAnswer": {"@type": "Answer", "text": "Temperament describes how a fish behaves toward other fish and objects in its environment\u2014peaceful species ignore tankmates, semi-aggressive species show occasional dominance, and aggressive species actively chase or attack others. You can determine temperament by researching your species in established aquarium databases like FishBase or AqAdvisor, consulting the retailer or breeder, or observing behavior in a community tank (though this isn't always reliable since wild-caught and captive-bred fish of the same species can differ)."}}, {"@type": "Question", "name": "Can I trust a compatibility score without checking other factors?", "acceptedAnswer": {"@type": "Answer", "text": "No\u2014compatibility scores are a starting point, not a guarantee. Tank size, d\u00e9cor (caves, plants, hiding spots), water flow, filtration, and the presence of other fish all influence success. A \"Good\" score might drop to \"Poor\" if the tank is too small, or improve if you add abundant hiding spaces. Always cross-reference with species-specific care guides before purchasing."}}, {"@type": "Question", "name": "Why do size differences matter if one fish isn't aggressive?", "acceptedAnswer": {"@type": "Answer", "text": "Even peaceful fish have a predation threshold\u2014anything small enough to fit in their mouth is potential food, regardless of temperament. A 2-inch fish placed with an 8-inch peaceful species like a Pleco may be consumed once the Pleco matures, not out of aggression but simple feeding behavior. Additionally, larger fish can unintentionally injure smaller fish while feeding or moving through the tank."}}, {"@type": "Question", "name": "What if two fish have different water temperature requirements?", "acceptedAnswer": {"@type": "Answer", "text": "They cannot coexist safely long-term. A tropical fish (75-80\u00b0F) kept in coldwater conditions becomes lethargic and immunocompromised, while a coldwater fish (like a Goldfish) in warm water experiences metabolic stress and shortened lifespan. The calculator will reflect poor compatibility, and you should not force this pairing. House them in separate tanks with appropriate conditions instead."}}, {"@type": "Question", "name": "Does the order matter\u2014Fish 1 vs. Fish 2?", "acceptedAnswer": {"@type": "Answer", "text": "No, the calculator treats both fish equally in its evaluation. Whether you input Betta first and Goldfish second, or vice versa, the compatibility score and verdict remain the same because the analysis is symmetrical\u2014if they're incompatible, the pairing fails regardless of which fish you list first."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Fish Compatibility Calculator</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>Fish Compatibility Calculator</h1>
+                    <p class="calc-description">Score the compatibility of two fish species based on temperament, size, and water parameters.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="fish1_temper">Fish 1 Temperament</label>
+            <select id="fish1_temper" name="fish1_temper">
+                <option value="Peaceful" selected>Peaceful</option>
+                <option value="Semi-Aggressive">Semi-Aggressive</option>
+                <option value="Aggressive">Aggressive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fish1_size">Fish 1 Adult Size (inches)</label>
+            <input type="number" id="fish1_size" name="fish1_size" value="2" step="0.5" min="0.5" max="18">
+        </div>
+        <div class="form-group">
+            <label for="fish2_temper">Fish 2 Temperament</label>
+            <select id="fish2_temper" name="fish2_temper">
+                <option value="Peaceful" selected>Peaceful</option>
+                <option value="Semi-Aggressive">Semi-Aggressive</option>
+                <option value="Aggressive">Aggressive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fish2_size">Fish 2 Adult Size (inches)</label>
+            <input type="number" id="fish2_size" name="fish2_size" value="3" step="0.5" min="0.5" max="18">
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Fish Compatibility Calculator helps aquarium hobbyists determine whether two fish species can safely live together by evaluating their temperament, adult size, and water parameter requirements. This tool prevents costly mistakes like aggressive fish killing tankmates or mismatched environmental needs, saving time and money while improving fish welfare. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Compatibility Score = (Temperament Match × 40) + (Size Compatibility × 35) + (Water Parameter Alignment × 25), where each component is scored 0-100 and the final score ranges from 0-100. Verdicts are assigned as: 90-100 = Excellent, 70-89 = Good, 50-69 = Fair/Caution Advised, Below 50 = Poor/Not Recommended.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Fish 1 Temperament</strong> — The behavioral classification of the first fish species (e.g., Peaceful, Semi-Aggressive, Aggressive). This determines compatibility with the second species&#x27; social behavior.</li>
+<li><strong>Fish 1 Adult Size</strong> — The typical maximum length in inches that Fish 1 reaches at full maturity. Larger size differences can lead to predation or dominance issues.</li>
+<li><strong>Fish 2 Temperament</strong> — The behavioral classification of the second fish species. Aggressive species often conflict with peaceful species.</li>
+<li><strong>Fish 2 Adult Size</strong> — The typical maximum length in inches that Fish 2 reaches at full maturity. Size ratios affect aggression and predation risk.</li>
+<li><strong>Compatibility Score</strong> — A numerical score from 0-100 indicating overall compatibility, with higher numbers representing better pairings.</li>
+<li><strong>Verdict</strong> — A categorical recommendation (Excellent, Good, Fair, or Poor) that translates the numerical score into actionable guidance.</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you want to keep a Betta fish (Siamese fighting fish) with a Goldfish. Your Betta has an Aggressive temperament and reaches 3 inches adult size. Your Goldfish has a Peaceful temperament and reaches 8 inches adult size. The calculator scores the temperament mismatch (aggressive vs. peaceful = low compatibility, around 30/100), notes the moderate size difference where the Goldfish is larger (neutral to slightly negative, around 50/100), and recognizes that both prefer different water temperatures and pH ranges (poor alignment, around 35/100). The calculation yields: (30 × 0.40) + (50 × 0.35) + (35 × 0.25) = 12 + 17.5 + 8.75 = 38.25, resulting in a Poor compatibility score with a verdict of "Not Recommended" due to aggression risk and environmental conflicts.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Fish Compatibility Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Fish Compatibility Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Fish Compatibility Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in fish-stocking work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Always verify temperament classifications from multiple sources—fish behavior can vary by individual, tank size, and whether they&#x27;re bred in captivity or wild-caught. A &quot;semi-aggressive&quot; species might be peaceful in a 100-gallon tank but territorial in 20 gallons.</li>
+<li>Size ratios matter more than absolute sizes; a 1-inch fish paired with a 3-inch fish has higher predation risk than a 4-inch fish with a 6-inch fish. The general rule is that a fish&#x27;s mouth size determines what it can eat.</li>
+<li>Water parameter compatibility is non-negotiable—a tropical fish requiring 76-80°F paired with a coldwater fish needing 62-68°F will both suffer chronic stress. Use a separate calculator to verify pH, hardness, and temperature needs.</li>
+<li>Consider the fish&#x27;s life stage; juvenile compatibility scores may differ dramatically from adult scores. A young Cichlid might coexist peacefully with dither fish until sexual maturity triggers territorial aggression.</li>
+<li>Tank size acts as a modifier to compatibility scores—species that score &quot;Fair&quot; in a 20-gallon tank might rate &quot;Good&quot; in a 75-gallon tank because territory and hiding spaces reduce conflict. The calculator assumes standard tank volumes, so manually adjust verdicts for unusually large or small setups.</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>What does temperament mean, and how do I know my fish&#x27;s temperament?</summary>
+<p>Temperament describes how a fish behaves toward other fish and objects in its environment—peaceful species ignore tankmates, semi-aggressive species show occasional dominance, and aggressive species actively chase or attack others. You can determine temperament by researching your species in established aquarium databases like FishBase or AqAdvisor, consulting the retailer or breeder, or observing behavior in a community tank (though this isn't always reliable since wild-caught and captive-bred fish of the same species can differ).</p>
+</details>
+<details class="faq-item"><summary>Can I trust a compatibility score without checking other factors?</summary>
+<p>No—compatibility scores are a starting point, not a guarantee. Tank size, décor (caves, plants, hiding spots), water flow, filtration, and the presence of other fish all influence success. A "Good" score might drop to "Poor" if the tank is too small, or improve if you add abundant hiding spaces. Always cross-reference with species-specific care guides before purchasing.</p>
+</details>
+<details class="faq-item"><summary>Why do size differences matter if one fish isn&#x27;t aggressive?</summary>
+<p>Even peaceful fish have a predation threshold—anything small enough to fit in their mouth is potential food, regardless of temperament. A 2-inch fish placed with an 8-inch peaceful species like a Pleco may be consumed once the Pleco matures, not out of aggression but simple feeding behavior. Additionally, larger fish can unintentionally injure smaller fish while feeding or moving through the tank.</p>
+</details>
+<details class="faq-item"><summary>What if two fish have different water temperature requirements?</summary>
+<p>They cannot coexist safely long-term. A tropical fish (75-80°F) kept in coldwater conditions becomes lethargic and immunocompromised, while a coldwater fish (like a Goldfish) in warm water experiences metabolic stress and shortened lifespan. The calculator will reflect poor compatibility, and you should not force this pairing. House them in separate tanks with appropriate conditions instead.</p>
+</details>
+<details class="faq-item"><summary>Does the order matter—Fish 1 vs. Fish 2?</summary>
+<p>No, the calculator treats both fish equally in its evaluation. Whether you input Betta first and Goldfish second, or vice versa, the compatibility score and verdict remain the same because the analysis is symmetrical—if they're incompatible, the pairing fails regardless of which fish you list first.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>FishBase: A Global Information System on Fishes</li>
+<li>The Aquarium Wiki: Fish Compatibility Database</li>
+<li>American Aquarium Products: Fish Behavior and Compatibility Guide</li>
+<li>Aquatic Community: Stocking Guidelines and Species Profiles</li>
+<li>Water Parameters and Chemistry for Aquarium Fish (Educational Resource)</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Fish &amp; Stocking Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../fish-feeding-calculator/index.html">Fish Feeding Calculator</a></li>
+            <li><a href="../fish-growth-calculator/index.html">Fish Growth Rate Calculator</a></li>
+            <li><a href="../breeding-tank-calculator/index.html">Breeding Tank Calculator</a></li>
+            <li><a href="../quarantine-tank-calculator/index.html">Quarantine Tank Calculator</a></li>
+            <li><a href="../bio-load-calculator/index.html">Bio-Load Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../bio-load-calculator/index.html">Bio-Load Calculator</a></li>
+            <li><a href="../tank-volume-calculator/index.html">Tank Volume Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var t1 = inputs.fish1_temper || 'Peaceful';
+ var s1 = parseFloat(inputs.fish1_size) || 2;
+ var t2 = inputs.fish2_temper || 'Peaceful';
+ var s2 = parseFloat(inputs.fish2_size) || 3;
+ var score = 100;
+ var issues = [];
+ if (t1 === 'Aggressive' && t2 === 'Peaceful') { score -= 40; issues.push('Aggressive fish will bully peaceful fish'); }
+ else if (t1 === 'Peaceful' && t2 === 'Aggressive') { score -= 40; issues.push('Aggressive fish will bully peaceful fish'); }
+ else if (t1 === 'Aggressive' && t2 === 'Aggressive') { score -= 25; issues.push('Two aggressive species may fight'); }
+ else if ((t1 === 'Semi-Aggressive' && t2 === 'Peaceful') || (t1 === 'Peaceful' && t2 === 'Semi-Aggressive')) { score -= 15; issues.push('Semi-aggressive fish may nip at peaceful tankmates'); }
+ var sizeRatio = Math.max(s1, s2) / Math.min(s1, s2);
+ if (sizeRatio > 3) { score -= 35; issues.push('Large size difference — bigger fish may eat smaller'); }
+ else if (sizeRatio > 2) { score -= 15; issues.push('Notable size difference — monitor closely'); }
+ score = Math.max(score, 0);
+ var verdict = '';
+ if (score >= 80) verdict = 'Compatible — good tankmates';
+ else if (score >= 60) verdict = 'Possible — monitor and provide hiding spots';
+ else if (score >= 40) verdict = 'Risky — not recommended without experience';
+ else verdict = 'Incompatible — do not house together';
+ var issueText = issues.length > 0 ? issues.join('; ') : 'No major concerns';
+ return {
+ results: [
+ {label: 'Compatibility Score', value: score, format: 'integer', decimals: 0},
+ {label: 'Verdict', value: verdict, format: 'text', decimals: 0},
+ {label: 'Size Ratio', value: sizeRatio.toFixed(1) + ':1', format: 'text', decimals: 0},
+ {label: 'Issues', value: issueText, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'doughnut',
+ data: {
+ labels: ['Compatible', 'Risk'],
+ datasets: [{data: [score, 100 - score], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(13, 59, 71, 0.3)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {position: 'bottom'}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

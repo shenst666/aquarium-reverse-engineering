@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>池塘计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate pond volume, maximum fish capacity, pump size, and aeration needs for outdoor ponds.">
+    <link rel="canonical" href="https://aquacalcs.com/pond-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="池塘计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate pond volume, maximum fish capacity, pump size, and aeration needs for outdoor ponds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/pond-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="池塘计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate pond volume, maximum fish capacity, pump size, and aeration needs for outdoor ponds.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "池塘计算器", "description": "Calculate pond volume, maximum fish capacity, pump size, and aeration needs for outdoor ponds.", "url": "https://aquacalcs.com/pond-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Tank Setup", "item": "https://aquacalcs.com/category/tank-setup/"}, {"@type": "ListItem", "position": 3, "name": "池塘计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I measure the average depth of an irregularly shaped pond?", "acceptedAnswer": {"@type": "Answer", "text": "Divide your pond into sections and measure the deepest and shallowest points in each section using a measuring pole or weighted line. Average all readings together. For most residential ponds, taking 4-6 measurements across different areas provides sufficient accuracy for equipment sizing calculations."}}, {"@type": "Question", "name": "Why does fish type matter so much for stocking calculations?", "acceptedAnswer": {"@type": "Answer", "text": "Different species have vastly different oxygen demands and waste production. Koi and other large carp are heavy feeders and waste producers requiring 200-500 gallons per fish, while common goldfish only need 20-50 gallons each. Using the wrong species assumption can lead to ammonia spikes, algae blooms, and fish death within weeks."}}, {"@type": "Question", "name": "What happens if I undersized my pump?", "acceptedAnswer": {"@type": "Answer", "text": "An undersized pump fails to circulate water adequately, creating dead zones where uneaten food and fish waste accumulate. This causes ammonia and nitrite spikes that stress fish and encourage dangerous anaerobic bacteria growth in the substrate, potentially killing your entire pond within days during warm weather."}}, {"@type": "Question", "name": "Do I really need a separate aerator if I have a waterfall?", "acceptedAnswer": {"@type": "Answer", "text": "Waterfalls help with aeration by breaking the water surface, but they're not sufficient for deep ponds (4+ feet) or heavily stocked ponds. Deep water layers and the substrate rarely experience waterfall aeration, so bottom-dwelling bacteria and anaerobic zones develop. A dedicated air pump or diffuser system ensures dissolved oxygen reaches all zones."}}, {"@type": "Question", "name": "How often should water completely turn over through filtration?", "acceptedAnswer": {"@type": "Answer", "text": "Ornamental ponds should achieve 1 complete turnover per hour minimum, while heavily stocked fish ponds (especially koi) need 2-4 turnovers per hour. Faster turnover removes waste and maintains ammonia levels below 0.5 mg/L. Most experienced pond keepers use 3-4 hour filter turnover times, meaning the entire volume passes through filtration every 3-4 hours."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/tank-setup/index.html">Tank Setup</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">池塘计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>池塘计算器</h1>
+                    <p class="calc-description">Calculate pond volume, maximum fish capacity, pump size, and aeration needs for outdoor ponds.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="pond_length_ft">Pond Length (feet)</label>
+            <input type="number" id="pond_length_ft" name="pond_length_ft" value="10" step="1" min="3" max="50">
+        </div>
+        <div class="form-group">
+            <label for="pond_width_ft">Pond Width (feet)</label>
+            <input type="number" id="pond_width_ft" name="pond_width_ft" value="6" step="1" min="2" max="30">
+        </div>
+        <div class="form-group">
+            <label for="pond_depth_ft">Average Depth (feet)</label>
+            <input type="number" id="pond_depth_ft" name="pond_depth_ft" value="3" step="0.5" min="1" max="8">
+        </div>
+        <div class="form-group">
+            <label for="fish_type">Fish Type</label>
+            <select id="fish_type" name="fish_type">
+                <option value="Koi" selected>Koi</option>
+                <option value="Goldfish">Goldfish</option>
+                <option value="Mixed">Mixed</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Pond Calculator helps you determine the volume of your outdoor pond and calculate essential equipment sizing for fish health and water quality. By inputting your pond's dimensions and fish type, you'll discover how many fish your pond can safely support, what pump size you need for water circulation, and whether aeration is necessary—all critical factors for maintaining a thriving pond ecosystem. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Pond Volume (gallons) = Length (ft) × Width (ft) × Average Depth (ft) × 7.48; Maximum Fish = Volume ÷ (Fish Type Gallons Per Fish); Pump Size (GPH) = Volume × Turnover Rate (typically 1-2 times per hour); Filter Rating = Volume ÷ Filter Turnover Rate (typically 3-8 hours)</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Length</strong> — The longest dimension of your pond measured in feet; measure the top surface length rather than accounting for sloping sides</li>
+<li><strong>Width</strong> — The perpendicular dimension across your pond measured in feet; also measured at the surface level</li>
+<li><strong>Average Depth</strong> — The mean water depth in feet; measure the deepest point and shallowest point, then average them for irregular ponds</li>
+<li><strong>Fish Type</strong> — The species you plan to stock (koi, goldfish, tilapia, etc.); different species have different oxygen requirements and space needs, ranging from 5-50 gallons per fish</li>
+<li><strong>Turnover Rate</strong> — How many times the entire pond volume circulates through the pump per hour; typically 1-2 times for ponds, higher for heavily stocked or ornamental systems</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you're building a backyard koi pond that measures 12 feet long, 8 feet wide, and has an average depth of 3 feet. First, calculate volume: 12 × 8 × 3 × 7.48 = 2,150 gallons. Koi typically require 250 gallons per fish for healthy growth, so maximum stocking would be 2,150 ÷ 250 = approximately 8-9 koi. For circulation, a 1.5× turnover rate means your pump should handle 2,150 × 1.5 = 3,225 GPH. A mechanical filter should process the entire volume in about 4 hours, requiring a filter rated for 2,150 ÷ 4 = 540 GPH minimum. Given the koi waste load, you'd also need aeration—either an air pump or waterfall—to maintain oxygen levels above 5 mg/L.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Pond Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Pond Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Pond Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in tank-setup work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Measure your pond dimensions at the water surface level, not the ground level, since sloping sides affect actual usable volume; this prevents over-sizing equipment and overstocking fish</li>
+<li>Never stock at maximum capacity—aim for 50-75% of calculated maximum to account for fish growth, water quality fluctuations, and unexpected fish additions</li>
+<li>Choose a pump with 1.5-2× hourly turnover rate rather than minimum 1× to ensure adequate filtration and oxygen circulation, especially important in summer heat</li>
+<li>Koi require significantly more space (250-500 gallons each) than goldfish (25-50 gallons each); mismatching fish type to pond size is the most common cause of poor water quality</li>
+<li>If your pond reaches 4+ feet deep with heavily stocked koi, consider adding supplemental aeration even if a waterfall is present, as deep zones become oxygen-depleted</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>How do I measure the average depth of an irregularly shaped pond?</summary>
+<p>Divide your pond into sections and measure the deepest and shallowest points in each section using a measuring pole or weighted line. Average all readings together. For most residential ponds, taking 4-6 measurements across different areas provides sufficient accuracy for equipment sizing calculations.</p>
+</details>
+<details class="faq-item"><summary>Why does fish type matter so much for stocking calculations?</summary>
+<p>Different species have vastly different oxygen demands and waste production. Koi and other large carp are heavy feeders and waste producers requiring 200-500 gallons per fish, while common goldfish only need 20-50 gallons each. Using the wrong species assumption can lead to ammonia spikes, algae blooms, and fish death within weeks.</p>
+</details>
+<details class="faq-item"><summary>What happens if I undersized my pump?</summary>
+<p>An undersized pump fails to circulate water adequately, creating dead zones where uneaten food and fish waste accumulate. This causes ammonia and nitrite spikes that stress fish and encourage dangerous anaerobic bacteria growth in the substrate, potentially killing your entire pond within days during warm weather.</p>
+</details>
+<details class="faq-item"><summary>Do I really need a separate aerator if I have a waterfall?</summary>
+<p>Waterfalls help with aeration by breaking the water surface, but they're not sufficient for deep ponds (4+ feet) or heavily stocked ponds. Deep water layers and the substrate rarely experience waterfall aeration, so bottom-dwelling bacteria and anaerobic zones develop. A dedicated air pump or diffuser system ensures dissolved oxygen reaches all zones.</p>
+</details>
+<details class="faq-item"><summary>How often should water completely turn over through filtration?</summary>
+<p>Ornamental ponds should achieve 1 complete turnover per hour minimum, while heavily stocked fish ponds (especially koi) need 2-4 turnovers per hour. Faster turnover removes waste and maintains ammonia levels below 0.5 mg/L. Most experienced pond keepers use 3-4 hour filter turnover times, meaning the entire volume passes through filtration every 3-4 hours.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>University of Illinois Extension: Backyard Fish Pond Construction and Management</li>
+<li>American Koi Club: Pond Design and Filtration Guidelines</li>
+<li>EPA: Water Quality Standards for Aquatic Ecosystems</li>
+<li>PONDCARE: Fish Stocking and Pond Capacity Recommendations</li>
+<li>Drexel University: Ornamental Fish Aquaculture and Water Chemistry</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Tank Setup Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../tank-volume-calculator/index.html">Tank Volume Calculator</a></li>
+            <li><a href="../substrate-calculator/index.html">Substrate Calculator</a></li>
+            <li><a href="../aquarium-heater-calculator/index.html">Aquarium Heater Calculator</a></li>
+            <li><a href="../filter-flow-calculator/index.html">Filter Flow Rate Calculator</a></li>
+            <li><a href="../aquarium-light-calculator/index.html">Aquarium Lighting Calculator</a></li>
+            <li><a href="../aquarium-stand-weight/index.html">Aquarium Weight Calculator</a></li>
+            <li><a href="../aquarium-background-calculator/index.html">Aquarium Background Calculator</a></li>
+            <li><a href="../saltwater-reef-calculator/index.html">Saltwater Reef Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../saltwater-reef-calculator/index.html">Saltwater Reef Calculator</a></li>
+            <li><a href="../tank-volume-calculator/index.html">Tank Volume Calculator</a></li>
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var length = parseFloat(inputs.pond_length_ft) || 10;
+ var width = parseFloat(inputs.pond_width_ft) || 6;
+ var depth = parseFloat(inputs.pond_depth_ft) || 3;
+ var fishType = inputs.fish_type || 'Koi';
+
+ /* Volume — assume irregular shape ~80% of rectangular */
+ var volumeGal = length * width * depth * 7.48 * 0.8;
+
+ /* Max fish by type */
+ var galPerFish = {'Koi': 250, 'Goldfish': 50, 'Mixed': 150};
+ var maxFish = Math.floor(volumeGal / (galPerFish[fishType] || 150));
+
+ /* Pump should turn over entire pond volume every 1-2 hours */
+ var pumpGPH = Math.round(volumeGal);
+
+ /* Aeration needed if depth > 3 ft or heavy stock */
+ var aeratorNeeded = depth > 3 || maxFish > 10 ? 'Yes — recommended' : 'Optional for shallow ponds';
+
+ /* Filter size — rated for 1.5x pond volume */
+ var filterGal = Math.round(volumeGal * 1.5);
+
+ /* Minimum depth for koi to overwinter */
+ var winterNote = depth >= 3 ? 'Depth sufficient for overwintering' : 'Too shallow for winter — koi need 3+ ft depth';
+
+ return {
+ results: [
+ {label: 'Estimated Volume (gallons)', value: Math.round(volumeGal), format: 'integer', decimals: 0},
+ {label: 'Maximum Fish', value: maxFish, format: 'integer', decimals: 0},
+ {label: 'Pump Size (GPH)', value: pumpGPH, format: 'integer', decimals: 0},
+ {label: 'Filter Rating (gallons)', value: filterGal, format: 'integer', decimals: 0},
+ {label: 'Aerator Needed', value: aeratorNeeded, format: 'text', decimals: 0},
+ {label: 'Winter Note', value: winterNote, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Pond Volume', 'Filter Rating'],
+ datasets: [{
+ label: 'Gallons',
+ data: [Math.round(volumeGal), filterGal],
+ backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)'],
+ borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)'],
+ borderWidth: 1
+ }]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

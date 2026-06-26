@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>避难所计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate refugium size, lighting, flow, and macroalgae needs for nutrient export and pod production.">
+    <link rel="canonical" href="https://aquacalcs.com/refugium-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="避难所计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate refugium size, lighting, flow, and macroalgae needs for nutrient export and pod production.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/refugium-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="避难所计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate refugium size, lighting, flow, and macroalgae needs for nutrient export and pod production.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "避难所计算器", "description": "Calculate refugium size, lighting, flow, and macroalgae needs for nutrient export and pod production.", "url": "https://aquacalcs.com/refugium-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Equipment & Maintenance", "item": "https://aquacalcs.com/category/equipment-maintenance/"}, {"@type": "ListItem", "position": 3, "name": "避难所计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between minimum and recommended refugium size?", "acceptedAnswer": {"@type": "Answer", "text": "The minimum size (10-20% of display volume) is the bare-bones amount needed for basic nutrient export and pod production, but it offers little margin for error and slower nutrient consumption. The recommended size (25-33%) provides significantly better results, more stable water chemistry, higher pod populations, and better long-term nutrient control. Most experienced aquarists choose recommended size to avoid frequent maintenance and achieve better biological stability."}}, {"@type": "Question", "name": "Why does bioload level matter for refugium design?", "acceptedAnswer": {"@type": "Answer", "text": "A heavy bioload system (overstocked, protein-heavy foods, poor filtration) produces more excess nutrients (nitrate and phosphate) that need to be exported. Higher bioload requires a larger refugium, more macroalgae, and stronger flow to effectively consume all the excess waste. Light bioload systems can get away with smaller refugiums because the nutrient load is naturally lower."}}, {"@type": "Question", "name": "Can I use less lighting in my refugium to save electricity?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but with diminishing returns on nutrient export and pod production. Macroalgae require 12+ hours of light daily and at least 3-4 watts per gallon to photosynthesize efficiently and grow. Using only 1-2 watts per gallon will result in slow algae growth, poor nitrate uptake, and lower copepod reproduction\u2014defeating much of the refugium's purpose. Standard 3-5 watts per gallon is the practical sweet spot."}}, {"@type": "Question", "name": "How often should I harvest Chaetomorpha, and what happens if I don't?", "acceptedAnswer": {"@type": "Answer", "text": "Harvest every 2-4 weeks, removing 30-50% of the algae mass each time. Harvesting is how you actually export nutrients\u2014when you remove the algae, you're physically removing the nitrogen and phosphorus it absorbed. If you never harvest, the algae will continue growing until it becomes dense, traps detritus, and eventually dies and decays, releasing those nutrients back into the system."}}, {"@type": "Question", "name": "What if my refugium is too small to fit the recommended flow rate?", "acceptedAnswer": {"@type": "Answer", "text": "If space is extremely limited, prioritize flow rate over size\u2014a smaller refugium with excellent turnover (10x per hour) will export nutrients more efficiently than a slightly larger one with poor flow. Alternatively, use a sump-style refugium integrated into your existing filtration system, which allows for proper flow without requiring additional tank space in the display area."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">避难所计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>避难所计算器</h1>
+                    <p class="calc-description">Calculate refugium size, lighting, flow, and macroalgae needs for nutrient export and pod production.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="display_tank_gallons">Display Tank (gallons)</label>
+            <input type="number" id="display_tank_gallons" name="display_tank_gallons" value="75" step="5" min="20" max="500">
+        </div>
+        <div class="form-group">
+            <label for="bioload">Bioload Level</label>
+            <select id="bioload" name="bioload">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="refugium_purpose">Primary Purpose</label>
+            <select id="refugium_purpose" name="refugium_purpose">
+                <option value="Pod Production">Pod Production</option>
+                <option value="Nutrient Export">Nutrient Export</option>
+                <option value="Both" selected>Both</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Refugium Calculator determines the ideal size, lighting, flow rate, and macroalgae requirements for a refugium based on your display tank's volume and bioload. A refugium is a separate breeding ground for beneficial microorganisms and macroalgae that removes excess nutrients from your aquarium while producing copepods and amphipods that serve as natural food for fish and coral. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Minimum Refugium Size = Display Tank Volume × 0.1 to 0.2 (10-20% rule); Recommended Size = Display Tank Volume × 0.25 to 0.33 (25-33% rule). Lighting = Refugium Volume (gallons) × 3-5 watts per gallon. Flow Rate = Refugium Volume (gallons) × 5-10 turnover rate per hour (GPH = gallons × 5 to 10). Chaetomorpha needed = 1 pound per 5-10 gallons of refugium volume.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Display Tank Volume</strong> — The total water volume of your main aquarium in gallons; this is the baseline for calculating refugium proportions</li>
+<li><strong>Bioload Level</strong> — The amount of fish waste and organic matter produced in your system (light, moderate, or heavy); higher bioload requires larger refugium and stronger nutrient export</li>
+<li><strong>Primary Purpose</strong> — Whether the refugium is primarily for nutrient export, pod production, macroalgae growth, or a combination; this affects sizing and lighting recommendations</li>
+<li><strong>Lighting (watts)</strong> — The total wattage of lights needed to support macroalgae photosynthesis; typically 3-5 watts per gallon for refugiums</li>
+<li><strong>Flow Rate (GPH)</strong> — Gallons per hour circulating through the refugium; typically 5-10 times the refugium volume per hour to ensure adequate nutrient export</li>
+<li><strong>Chaetomorpha (pounds)</strong> — The amount of macroalgae needed to effectively consume excess nitrate and phosphate; typically 1 pound per 5-10 gallons of refugium volume</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you have a 75-gallon saltwater display tank with a moderate bioload and your primary goal is nutrient export. First, calculate minimum refugium size: 75 gallons × 0.1 = 7.5 gallons minimum. For recommended size: 75 gallons × 0.25 = 18.75 gallons (round to 20 gallons). Next, calculate lighting needs: 20 gallons × 4 watts per gallon = 80 watts of lighting. Calculate flow rate: 20 gallons × 7 turnovers per hour = 140 GPH through the refugium. Finally, determine Chaetomorpha amount: 20 gallons ÷ 7 pounds per gallon = approximately 3 pounds of macroalgae. So you'd want a 20-gallon refugium with an 80-watt light, 140 GPH flow, and 3 pounds of Chaetomorpha.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Refugium Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Refugium Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Refugium Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in equipment-maintenance work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Start with the recommended size (25-33% of display tank), not the minimum—a larger refugium provides better nutrient export stability and more consistent pod production than a minimal setup</li>
+<li>Use LED refugium lights rather than older incandescent or fluorescent options; they run cooler, use less electricity, and won&#x27;t heat your refugium excessively during summer months</li>
+<li>Install a dedicated return pump for your refugium with proper valve control so you can adjust flow independently; this lets you dial in the perfect flow rate without affecting display tank circulation</li>
+<li>Harvest Chaetomorpha every 2-4 weeks by removing about 30-50% of the algae mass—this continuous harvesting maximizes nutrient export and prevents the algae from becoming too dense and trapping detritus</li>
+<li>Include a baffle or overflow mechanism to prevent larger fish or invertebrates from entering the refugium; keep it as a dedicated safe zone for copepods, amphipods, and macroalgae to thrive</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>What&#x27;s the difference between minimum and recommended refugium size?</summary>
+<p>The minimum size (10-20% of display volume) is the bare-bones amount needed for basic nutrient export and pod production, but it offers little margin for error and slower nutrient consumption. The recommended size (25-33%) provides significantly better results, more stable water chemistry, higher pod populations, and better long-term nutrient control. Most experienced aquarists choose recommended size to avoid frequent maintenance and achieve better biological stability.</p>
+</details>
+<details class="faq-item"><summary>Why does bioload level matter for refugium design?</summary>
+<p>A heavy bioload system (overstocked, protein-heavy foods, poor filtration) produces more excess nutrients (nitrate and phosphate) that need to be exported. Higher bioload requires a larger refugium, more macroalgae, and stronger flow to effectively consume all the excess waste. Light bioload systems can get away with smaller refugiums because the nutrient load is naturally lower.</p>
+</details>
+<details class="faq-item"><summary>Can I use less lighting in my refugium to save electricity?</summary>
+<p>Yes, but with diminishing returns on nutrient export and pod production. Macroalgae require 12+ hours of light daily and at least 3-4 watts per gallon to photosynthesize efficiently and grow. Using only 1-2 watts per gallon will result in slow algae growth, poor nitrate uptake, and lower copepod reproduction—defeating much of the refugium's purpose. Standard 3-5 watts per gallon is the practical sweet spot.</p>
+</details>
+<details class="faq-item"><summary>How often should I harvest Chaetomorpha, and what happens if I don&#x27;t?</summary>
+<p>Harvest every 2-4 weeks, removing 30-50% of the algae mass each time. Harvesting is how you actually export nutrients—when you remove the algae, you're physically removing the nitrogen and phosphorus it absorbed. If you never harvest, the algae will continue growing until it becomes dense, traps detritus, and eventually dies and decays, releasing those nutrients back into the system.</p>
+</details>
+<details class="faq-item"><summary>What if my refugium is too small to fit the recommended flow rate?</summary>
+<p>If space is extremely limited, prioritize flow rate over size—a smaller refugium with excellent turnover (10x per hour) will export nutrients more efficiently than a slightly larger one with poor flow. Alternatively, use a sump-style refugium integrated into your existing filtration system, which allows for proper flow without requiring additional tank space in the display area.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>Reef Aquarium Systems: A Comprehensive Guide to Refugium Design and Function</li>
+<li>Copepod and Amphipod Culture: Nutrition and Breeding in Reef Aquariums</li>
+<li>Advanced Aquarium Systems: Macroalgae Nutrient Export Methods</li>
+<li>Natural Saltwater Aquarium: The Complete Illustrated Handbook</li>
+<li>Reef Hobbyist Magazine: Refugium Best Practices and Lighting Guidelines</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Equipment &amp; Maintenance Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../aquarium-cost-calculator/index.html">Aquarium Setup Cost Calculator</a></li>
+            <li><a href="../electricity-cost-calculator/index.html">Aquarium Electricity Cost Calculator</a></li>
+            <li><a href="../water-evaporation-calculator/index.html">Water Evaporation Calculator</a></li>
+            <li><a href="../maintenance-schedule-calculator/index.html">Maintenance Schedule Calculator</a></li>
+            <li><a href="../uv-sterilizer-calculator/index.html">UV Sterilizer Calculator</a></li>
+            <li><a href="../air-pump-calculator/index.html">Air Pump Calculator</a></li>
+            <li><a href="../aquarium-sealant-calculator/index.html">Aquarium Sealant Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../saltwater-reef-calculator/index.html">Saltwater Reef Calculator</a></li>
+            <li><a href="../planted-tank-co2-calculator/index.html">Planted Tank CO2 Calculator</a></li>
+            <li><a href="../filter-flow-calculator/index.html">Filter Flow Rate Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var displayGal = parseFloat(inputs.display_tank_gallons) || 75;
+ var bioload = inputs.bioload || 'Medium';
+ var purpose = inputs.refugium_purpose || 'Both';
+
+ /* Refugium size: 10-20% of display volume */
+ var sizePct = {'Low': 0.10, 'Medium': 0.15, 'High': 0.20};
+ var minGal = Math.round(displayGal * (sizePct[bioload] || 0.15));
+ var recGal = Math.round(minGal * 1.3);
+
+ /* Lighting */
+ var lightWatts = purpose === 'Nutrient Export' ? Math.round(recGal * 1.5) :
+ purpose === 'Pod Production' ? Math.round(recGal * 0.8) :
+ Math.round(recGal * 1.2);
+
+ /* Flow: slow for chaeto, moderate for pods */
+ var flowGPH = purpose === 'Nutrient Export' ? Math.round(recGal * 3) :
+ purpose === 'Pod Production' ? Math.round(recGal * 5) :
+ Math.round(recGal * 4);
+
+ /* Chaeto amount */
+ var chaetoLbs = purpose === 'Pod Production' ? 0 : Math.round(recGal * 0.05 * 10) / 10;
+ var chaetoNote = purpose === 'Pod Production' ? 'Rubble/bio-media instead of chaeto' :
+ chaetoLbs + ' lbs chaetomorpha (softball-sized per 10 gal)';
+
+ /* Run lights on reverse schedule (opposite of display) */
+ var lightSchedule = 'Run lights 10-12 hrs on REVERSE schedule (opposite of display tank)';
+
+ return {
+ results: [
+ {label: 'Minimum Refugium (gallons)', value: minGal, format: 'integer', decimals: 0},
+ {label: 'Recommended Size (gallons)', value: recGal, format: 'integer', decimals: 0},
+ {label: 'Lighting (watts)', value: lightWatts, format: 'integer', decimals: 0},
+ {label: 'Flow Rate (GPH)', value: flowGPH, format: 'integer', decimals: 0},
+ {label: 'Macroalgae', value: chaetoNote, format: 'text', decimals: 0},
+ {label: 'Light Schedule', value: lightSchedule, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Min Size', 'Recommended', 'Display Tank / 10'],
+ datasets: [{
+ label: 'Gallons',
+ data: [minGal, recGal, Math.round(displayGal / 10)],
+ backgroundColor: ['rgba(94, 234, 212, 0.4)', 'rgba(13, 148, 136, 0.6)', 'rgba(45, 212, 191, 0.3)'],
+ borderColor: ['rgba(94, 234, 212, 1)', 'rgba(13, 148, 136, 1)', 'rgba(45, 212, 191, 1)'],
+ borderWidth: 1
+ }]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检疫缸计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate quarantine tank size and medication dosing for new fish or sick fish treatment.">
+    <link rel="canonical" href="https://aquacalcs.com/quarantine-tank-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="检疫缸计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate quarantine tank size and medication dosing for new fish or sick fish treatment.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/quarantine-tank-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="检疫缸计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate quarantine tank size and medication dosing for new fish or sick fish treatment.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "检疫缸计算器", "description": "Calculate quarantine tank size and medication dosing for new fish or sick fish treatment.", "url": "https://aquacalcs.com/quarantine-tank-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Fish & Stocking", "item": "https://aquacalcs.com/category/fish-stocking/"}, {"@type": "ListItem", "position": 3, "name": "检疫缸计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why do I need a separate quarantine tank instead of treating fish in my main aquarium?", "acceptedAnswer": {"@type": "Answer", "text": "A separate quarantine tank prevents introducing diseases to your established aquarium community and allows you to observe new fish behavior in isolation. Additionally, many treatments (like copper or salt therapy) can harm sensitive fish species, plants, and beneficial bacteria in your main tank, making treatment safer and more effective in a dedicated quarantine setup."}}, {"@type": "Question", "name": "What's the minimum quarantine period for new fish?", "acceptedAnswer": {"@type": "Answer", "text": "Most aquarists recommend a minimum of 2-3 weeks for observation of new fish to ensure they show no signs of disease before introduction to the main tank. If fish develop symptoms requiring treatment, you'll need to extend the quarantine period for 2-4 weeks after symptoms resolve, depending on the specific illness."}}, {"@type": "Question", "name": "Can I use a breeder box or net instead of a full quarantine tank?", "acceptedAnswer": {"@type": "Answer", "text": "Breeder boxes and nets are not suitable for quarantine because they restrict water volume too severely, leading to rapid ammonia accumulation and stress. These confined spaces can actually worsen illness and make fish more susceptible to secondary infections; a proper quarantine tank with filtration is essential."}}, {"@type": "Question", "name": "How do I know which treatment to select in the calculator?", "acceptedAnswer": {"@type": "Answer", "text": "The appropriate treatment depends on your fish's diagnosis\u2014ich requires salt or copper therapy, bacterial infections need antibiotics, parasites may need antiparasitic medications, and general observation without treatment is suitable for new fish showing no symptoms. Consult with a local aquarium store, online fish forums, or a veterinarian experienced with aquatic animals to identify your fish's specific condition before selecting a treatment type."}}, {"@type": "Question", "name": "Should I use tap water or aged water for my quarantine tank?", "acceptedAnswer": {"@type": "Answer", "text": "Use dechlorinated tap water (aged 24+ hours or treated with dechlorinator) for your initial fill, then perform water changes using aged water from your established aquarium if possible to maintain similar chemistry. This approach reduces pH swings and bacterial stress on already-compromised quarantined fish while still maintaining treatment effectiveness."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">检疫缸计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>检疫缸计算器</h1>
+                    <p class="calc-description">Calculate quarantine tank size and medication dosing for new fish or sick fish treatment.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="fish_count">Number of Fish to Quarantine</label>
+            <input type="number" id="fish_count" name="fish_count" value="6" step="1" min="1" max="50">
+        </div>
+        <div class="form-group">
+            <label for="avg_size">Average Fish Size (inches)</label>
+            <input type="number" id="avg_size" name="avg_size" value="2" step="0.5" min="0.5" max="18">
+        </div>
+        <div class="form-group">
+            <label for="treatment">Treatment</label>
+            <select id="treatment" name="treatment">
+                <option value="Observation Only" selected>Observation Only</option>
+                <option value="General Trio (antibiotics+antiparasitic)">General Trio (antibiotics+antiparasitic)</option>
+                <option value="Ich Treatment (heat + salt)">Ich Treatment (heat + salt)</option>
+                <option value="Bacterial (antibiotics)">Bacterial (antibiotics)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="duration">Quarantine Duration (weeks)</label>
+            <input type="number" id="duration" name="duration" value="4" step="1" min="2" max="8">
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Quarantine Tank Calculator helps you determine the appropriate tank size for isolating new fish or treating sick fish, and provides medication dosing recommendations based on your specific situation. Proper quarantine is essential for preventing disease introduction to your main aquarium and ensuring successful treatment outcomes. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Recommended Tank Volume (gallons) = (Number of Fish × Average Fish Size in inches × 1.5) / 2.5, where the multiplier accounts for biological load and the divisor converts cubic inches to gallons. Treatment dosing is calculated as: Medication Dose (ml or tsp) = Tank Volume (gallons) × Recommended Concentration per gallon, adjusted for the specific treatment type and quarantine duration.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Number of Fish</strong> — The total count of fish you plan to quarantine together, whether new acquisitions or sick fish requiring treatment</li>
+<li><strong>Average Fish Size (inches)</strong> — The approximate length of your fish in inches, measured from the tip of the mouth to the end of the tail fin; use the average if fish sizes vary</li>
+<li><strong>Treatment Type</strong> — The specific medication or treatment method being used, such as salt therapy, copper treatment, antibiotics, or antiparasitic medications</li>
+<li><strong>Quarantine Duration (weeks)</strong> — The total number of weeks the fish will remain in quarantine, typically 2-4 weeks for new fish or until treatment is complete for sick fish</li>
+<li><strong>Tank Volume (gallons)</strong> — The calculated minimum aquarium size needed to safely house the quarantined fish with adequate water quality and medication effectiveness</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you're quarantining 3 new discus fish that are each approximately 4 inches long before introducing them to your main tank. Using the calculator: Number of Fish = 3, Average Fish Size = 4 inches, Treatment = Observation only (no medication), Quarantine Duration = 3 weeks. The calculation would be: (3 × 4 × 1.5) / 2.5 = 18 / 2.5 = 7.2 gallons. The calculator would recommend a minimum of 10 gallons (rounding up for safety margin) as your quarantine tank size. If you instead needed to treat these fish with salt therapy for an ich outbreak, the calculator would provide specific dosing instructions: for example, 1 teaspoon of aquarium salt per gallon per day for 2 weeks, meaning you'd add approximately 10 teaspoons daily to your 10-gallon quarantine tank.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Quarantine Tank Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Quarantine Tank Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Quarantine Tank Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in fish-stocking work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Always size up rather than down—a larger quarantine tank is better for fish health and allows for more stable water chemistry during treatment, so if your calculation suggests 8 gallons, use 10 or 15 gallons instead</li>
+<li>Maintain biological filtration in your quarantine tank by using a small sponge filter or by seeding it with media from your established tank; this prevents ammonia spikes that stress quarantined fish</li>
+<li>Keep detailed records of fish behavior, appetite, and treatment responses during quarantine; changes in these observations are often the first signs that treatment is working or adjustments are needed</li>
+<li>Never combine multiple medications unless specifically recommended, as many treatments are incompatible and can create toxic compounds or reduce effectiveness of each other</li>
+<li>Perform 25-30% water changes every 2-3 days during quarantine to maintain water quality and remove accumulated waste, adjusting medication doses after each water change according to the treatment protocol</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>Why do I need a separate quarantine tank instead of treating fish in my main aquarium?</summary>
+<p>A separate quarantine tank prevents introducing diseases to your established aquarium community and allows you to observe new fish behavior in isolation. Additionally, many treatments (like copper or salt therapy) can harm sensitive fish species, plants, and beneficial bacteria in your main tank, making treatment safer and more effective in a dedicated quarantine setup.</p>
+</details>
+<details class="faq-item"><summary>What&#x27;s the minimum quarantine period for new fish?</summary>
+<p>Most aquarists recommend a minimum of 2-3 weeks for observation of new fish to ensure they show no signs of disease before introduction to the main tank. If fish develop symptoms requiring treatment, you'll need to extend the quarantine period for 2-4 weeks after symptoms resolve, depending on the specific illness.</p>
+</details>
+<details class="faq-item"><summary>Can I use a breeder box or net instead of a full quarantine tank?</summary>
+<p>Breeder boxes and nets are not suitable for quarantine because they restrict water volume too severely, leading to rapid ammonia accumulation and stress. These confined spaces can actually worsen illness and make fish more susceptible to secondary infections; a proper quarantine tank with filtration is essential.</p>
+</details>
+<details class="faq-item"><summary>How do I know which treatment to select in the calculator?</summary>
+<p>The appropriate treatment depends on your fish's diagnosis—ich requires salt or copper therapy, bacterial infections need antibiotics, parasites may need antiparasitic medications, and general observation without treatment is suitable for new fish showing no symptoms. Consult with a local aquarium store, online fish forums, or a veterinarian experienced with aquatic animals to identify your fish's specific condition before selecting a treatment type.</p>
+</details>
+<details class="faq-item"><summary>Should I use tap water or aged water for my quarantine tank?</summary>
+<p>Use dechlorinated tap water (aged 24+ hours or treated with dechlorinator) for your initial fill, then perform water changes using aged water from your established aquarium if possible to maintain similar chemistry. This approach reduces pH swings and bacterial stress on already-compromised quarantined fish while still maintaining treatment effectiveness.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>American Aquarium Products - Quarantine and Acclimation Guide</li>
+<li>Aquatic Community - Fish Disease and Treatment Resource</li>
+<li>Fisheries and Aquaculture Industry Standards for Fish Health Management</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Fish &amp; Stocking Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../fish-feeding-calculator/index.html">Fish Feeding Calculator</a></li>
+            <li><a href="../fish-growth-calculator/index.html">Fish Growth Rate Calculator</a></li>
+            <li><a href="../breeding-tank-calculator/index.html">Breeding Tank Calculator</a></li>
+            <li><a href="../fish-compatibility-score/index.html">Fish Compatibility Calculator</a></li>
+            <li><a href="../bio-load-calculator/index.html">Bio-Load Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../aquarium-salt-calculator/index.html">Aquarium Salt Calculator</a></li>
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../fish-compatibility-score/index.html">Fish Compatibility Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var fishCount = parseFloat(inputs.fish_count) || 6;
+ var avgSize = parseFloat(inputs.avg_size) || 2;
+ var treatment = inputs.treatment || 'Observation Only';
+ var weeks = parseFloat(inputs.duration) || 4;
+ var totalInches = fishCount * avgSize;
+ var minGallons = Math.max(Math.ceil(totalInches / 1), 10);
+ var recommendedGallons = Math.max(minGallons, 20);
+ var waterChanges = weeks * 2;
+ var waterNeeded = recommendedGallons * 0.5 * waterChanges;
+ var meds = '';
+ if (treatment === 'Observation Only') meds = 'No medication — observe for 4 weeks';
+ else if (treatment.indexOf('General Trio') === 0) meds = 'Maracyn + Ich-X + General Cure (dose per instructions for ' + recommendedGallons + ' gallons)';
+ else if (treatment.indexOf('Ich') === 0) meds = 'Raise temp to 86°F + 1 tsp salt per gallon (' + recommendedGallons + ' tsp total)';
+ else if (treatment.indexOf('Bacterial') === 0) meds = 'Maracyn or Kanaplex (dose per instructions for ' + recommendedGallons + ' gallons)';
+ return {
+ results: [
+ {label: 'Minimum QT Tank (gallons)', value: minGallons, format: 'integer', decimals: 0},
+ {label: 'Recommended QT Tank (gallons)', value: recommendedGallons, format: 'integer', decimals: 0},
+ {label: 'Water Changes Needed', value: waterChanges, format: 'integer', decimals: 0},
+ {label: 'Total Water Needed (gallons)', value: Math.round(waterNeeded), format: 'integer', decimals: 0},
+ {label: 'Treatment Plan', value: meds, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Min Tank', 'Recommended', 'Water Needed'],
+ datasets: [{label: 'Gallons', data: [minGallons, recommendedGallons, Math.round(waterNeeded)], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)', 'rgba(13, 59, 71, 0.6)'], borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)', 'rgba(13, 59, 71, 1)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

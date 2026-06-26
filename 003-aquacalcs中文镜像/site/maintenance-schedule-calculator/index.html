@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维护计划计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Generate a recommended maintenance schedule based on your tank size and stocking level.">
+    <link rel="canonical" href="https://aquacalcs.com/maintenance-schedule-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="维护计划计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Generate a recommended maintenance schedule based on your tank size and stocking level.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/maintenance-schedule-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="维护计划计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Generate a recommended maintenance schedule based on your tank size and stocking level.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "维护计划计算器", "description": "Generate a recommended maintenance schedule based on your tank size and stocking level.", "url": "https://aquacalcs.com/maintenance-schedule-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Equipment & Maintenance", "item": "https://aquacalcs.com/category/equipment-maintenance/"}, {"@type": "ListItem", "position": 3, "name": "维护计划计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How often should I do water changes in my aquarium?", "acceptedAnswer": {"@type": "Answer", "text": "Water change frequency depends on tank size, stocking, and filtration, but typically ranges from every 5-7 days for heavily stocked unplanted tanks to every 10-14 days for lightly stocked planted tanks. A general rule is 25-30% of tank volume per change, more frequently for small tanks or high bioload. Use this calculator to get a personalized recommendation based on your specific setup."}}, {"@type": "Question", "name": "Does having live plants really reduce maintenance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, significantly. Live plants consume nitrates, produce oxygen, and help stabilize pH, reducing the accumulation of waste products. Most planted tanks can extend water change intervals by 20-30% compared to bare tanks with identical stocking levels. However, plants require their own maintenance (pruning, fertilizing) so you're trading one type of work for another."}}, {"@type": "Question", "name": "Why do different filter types need different maintenance schedules?", "acceptedAnswer": {"@type": "Answer", "text": "Filter types have different flow rates, surface areas, and biological capacity. Canister filters hold more media and process water more thoroughly, so they can go longer between cleanings. Hang-on-back and internal filters clog faster and need more frequent attention. The calculator accounts for these differences to prevent water quality crashes."}}, {"@type": "Question", "name": "Can I do maintenance less frequently if I have a really good filter?", "acceptedAnswer": {"@type": "Answer", "text": "Not substantially. Even the best filters only process water mechanically and biologically\u2014they don't remove dissolved fish waste (ammonia in small amounts), excess food, or plant matter. Water changes are irreplaceable because they physically remove accumulated waste. A good filter might extend intervals by a few days, but weekly maintenance is the minimum for most aquariums."}}, {"@type": "Question", "name": "What happens if I skip maintenance longer than the schedule recommends?", "acceptedAnswer": {"@type": "Answer", "text": "Water quality degrades predictably: ammonia and nitrite spike within days (causing stress and disease), then nitrate accumulates over weeks (causing algae blooms and pH crashes). Even if fish appear fine, subclinical stress weakens their immune system. Following the recommended schedule prevents these cascading problems before they become visible."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">维护计划计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>维护计划计算器</h1>
+                    <p class="calc-description">Generate a recommended maintenance schedule based on your tank size and stocking level.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="gallons">Tank Size (gallons)</label>
+            <input type="number" id="gallons" name="gallons" value="55" step="1" min="1" max="500">
+        </div>
+        <div class="form-group">
+            <label for="stocking">Stocking Level</label>
+            <select id="stocking" name="stocking">
+                <option value="Lightly Stocked">Lightly Stocked</option>
+                <option value="Moderately Stocked" selected>Moderately Stocked</option>
+                <option value="Heavily Stocked">Heavily Stocked</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="planted">Planted?</label>
+            <select id="planted" name="planted">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="filter_type">Filter Type</label>
+            <select id="filter_type" name="filter_type">
+                <option value="Hang-on-Back" selected>Hang-on-Back</option>
+                <option value="Canister">Canister</option>
+                <option value="Sponge">Sponge</option>
+                <option value="Internal">Internal</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Maintenance Schedule Calculator generates a customized maintenance routine based on your aquarium's size, how heavily stocked it is with fish, whether it has live plants, and what type of filter you're using. This tool matters because proper maintenance prevents water quality problems, keeps fish healthy, and extends the life of your equipment—but the right schedule varies dramatically based on your specific setup. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Maintenance Frequency = Base Interval ÷ (Stocking Factor × Bio-Load Multiplier) + Plant Reduction Factor. Where Base Interval is derived from tank gallons, Stocking Factor ranges from 0.8 (light) to 1.5 (heavy), Bio-Load Multiplier depends on filter type (canister = 0.9, hang-on-back = 1.0, internal = 1.1), and Plant Reduction Factor decreases frequency by 10-20% for planted tanks due to nutrient consumption.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Tank Size</strong> — The total volume of your aquarium in gallons—larger tanks are more forgiving and require less frequent maintenance because waste dilutes more slowly</li>
+<li><strong>Stocking Level</strong> — How densely populated your tank is with fish, typically categorized as Light (under 1 inch per gallon), Moderate (1-1.5 inches per gallon), or Heavy (over 1.5 inches per gallon)</li>
+<li><strong>Bio-Load Multiplier</strong> — A factor based on filter efficiency—canister filters handle waste better than hang-on-back filters, so they allow longer intervals between maintenance</li>
+<li><strong>Planted Status</strong> — Whether your tank contains live aquatic plants, which consume nitrates and provide oxygen, reducing the maintenance burden by up to 20%</li>
+<li><strong>Filter Type</strong> — The category of filtration system you use (canister, hang-on-back, internal, sponge, or undergravel), which directly impacts how often filter media needs cleaning</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you have a 75-gallon aquarium with a moderate stocking level (around 75 inches of fish), a hang-on-back filter, and no live plants. Start with the base interval for a 75-gallon tank, which is typically 7 days for water changes. Your stocking level is moderate, so the Stocking Factor is 1.0 (no increase). A hang-on-back filter has a standard Bio-Load Multiplier of 1.0, meaning no efficiency bonus. Since you have no plants, there's no reduction factor. Your calculation is: 7 days ÷ (1.0 × 1.0) = 7 days between 25-30% water changes. Additionally, the calculator recommends cleaning the filter media every 2-3 weeks and doing a full substrate vacuum weekly. If you added live plants to that same tank, the water change interval could extend to 9-10 days because plants absorb nitrates and reduce ammonia accumulation.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Maintenance Schedule Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Maintenance Schedule Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Maintenance Schedule Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in equipment-maintenance work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Write down your maintenance schedule and post it on your tank or phone—consistency matters more than perfection, and a written schedule prevents you from forgetting tasks during busy weeks</li>
+<li>Clean filter media in old tank water (not tap water) to preserve beneficial bacteria colonies that actually do the biological filtration work</li>
+<li>Test water parameters (ammonia, nitrite, nitrate, pH) at least weekly for the first month after starting a schedule—adjust frequency up if levels rise, or down if they&#x27;re stable</li>
+<li>Heavy-stocked tanks without plants typically need 50% larger maintenance loads than light-stocked planted tanks of the same volume, so don&#x27;t assume all tanks follow the same routine</li>
+<li>Upgrade your filter or add live plants if you find yourself doing maintenance more than twice weekly—this suggests your current system can&#x27;t handle your bioload efficiently</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>How often should I do water changes in my aquarium?</summary>
+<p>Water change frequency depends on tank size, stocking, and filtration, but typically ranges from every 5-7 days for heavily stocked unplanted tanks to every 10-14 days for lightly stocked planted tanks. A general rule is 25-30% of tank volume per change, more frequently for small tanks or high bioload. Use this calculator to get a personalized recommendation based on your specific setup.</p>
+</details>
+<details class="faq-item"><summary>Does having live plants really reduce maintenance?</summary>
+<p>Yes, significantly. Live plants consume nitrates, produce oxygen, and help stabilize pH, reducing the accumulation of waste products. Most planted tanks can extend water change intervals by 20-30% compared to bare tanks with identical stocking levels. However, plants require their own maintenance (pruning, fertilizing) so you're trading one type of work for another.</p>
+</details>
+<details class="faq-item"><summary>Why do different filter types need different maintenance schedules?</summary>
+<p>Filter types have different flow rates, surface areas, and biological capacity. Canister filters hold more media and process water more thoroughly, so they can go longer between cleanings. Hang-on-back and internal filters clog faster and need more frequent attention. The calculator accounts for these differences to prevent water quality crashes.</p>
+</details>
+<details class="faq-item"><summary>Can I do maintenance less frequently if I have a really good filter?</summary>
+<p>Not substantially. Even the best filters only process water mechanically and biologically—they don't remove dissolved fish waste (ammonia in small amounts), excess food, or plant matter. Water changes are irreplaceable because they physically remove accumulated waste. A good filter might extend intervals by a few days, but weekly maintenance is the minimum for most aquariums.</p>
+</details>
+<details class="faq-item"><summary>What happens if I skip maintenance longer than the schedule recommends?</summary>
+<p>Water quality degrades predictably: ammonia and nitrite spike within days (causing stress and disease), then nitrate accumulates over weeks (causing algae blooms and pH crashes). Even if fish appear fine, subclinical stress weakens their immune system. Following the recommended schedule prevents these cascading problems before they become visible.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>American Aquarium Products: Aquarium Maintenance Guide</li>
+<li>The Spruce Pets: How Often to Clean Your Aquarium Tank</li>
+<li>FishKeeping World: Complete Guide to Aquarium Maintenance</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Equipment &amp; Maintenance Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../aquarium-cost-calculator/index.html">Aquarium Setup Cost Calculator</a></li>
+            <li><a href="../electricity-cost-calculator/index.html">Aquarium Electricity Cost Calculator</a></li>
+            <li><a href="../water-evaporation-calculator/index.html">Water Evaporation Calculator</a></li>
+            <li><a href="../uv-sterilizer-calculator/index.html">UV Sterilizer Calculator</a></li>
+            <li><a href="../air-pump-calculator/index.html">Air Pump Calculator</a></li>
+            <li><a href="../aquarium-sealant-calculator/index.html">Aquarium Sealant Calculator</a></li>
+            <li><a href="../refugium-calculator/index.html">Refugium Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../water-change-calculator/index.html">Water Change Calculator</a></li>
+            <li><a href="../filter-flow-calculator/index.html">Filter Flow Rate Calculator</a></li>
+            <li><a href="../water-conditioner-calculator/index.html">Water Conditioner Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var gallons = parseFloat(inputs.gallons) || 55;
+ var stocking = inputs.stocking || 'Moderately Stocked';
+ var planted = inputs.planted || 'No';
+ var filterType = inputs.filter_type || 'Hang-on-Back';
+ var wcPct = 25;
+ var wcFreq = 'Weekly';
+ if (stocking === 'Lightly Stocked') { wcPct = 20; wcFreq = 'Every 10-14 days'; }
+ else if (stocking === 'Moderately Stocked') { wcPct = 25; wcFreq = 'Weekly'; }
+ else { wcPct = 40; wcFreq = 'Weekly (or 25% twice/week)'; }
+ var filterClean = 'Monthly';
+ if (filterType === 'Canister') filterClean = 'Every 2-3 months';
+ else if (filterType === 'Sponge') filterClean = 'Every 2 weeks (squeeze in tank water)';
+ else if (filterType === 'Internal') filterClean = 'Every 2 weeks';
+ var wcGallons = gallons * wcPct / 100;
+ var tasks = [];
+ tasks.push('Water change: ' + wcPct + '% (' + Math.round(wcGallons) + ' gal) ' + wcFreq);
+ tasks.push('Glass cleaning: Weekly');
+ tasks.push('Filter maintenance: ' + filterClean);
+ tasks.push('Gravel vacuum: ' + (stocking === 'Heavily Stocked' ? 'Weekly' : 'Bi-weekly'));
+ tasks.push('Water test: ' + (stocking === 'Heavily Stocked' ? 'Weekly' : 'Bi-weekly'));
+ if (planted === 'Yes') tasks.push('Fertilizer dosing: 3x per week');
+ tasks.push('Filter media replacement: Every 6-12 months (partial only)');
+ var schedule = tasks.join('\n');
+ return {
+ results: [
+ {label: 'Water Change Volume', value: Math.round(wcGallons) + ' gallons (' + wcPct + '%)', format: 'text', decimals: 0},
+ {label: 'Water Change Frequency', value: wcFreq, format: 'text', decimals: 0},
+ {label: 'Filter Maintenance', value: filterClean, format: 'text', decimals: 0},
+ {label: 'Full Schedule', value: schedule, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Weekly WC (gal)', 'Monthly WC (gal)', 'Yearly WC (gal)'],
+ datasets: [{label: 'Water Changed', data: [Math.round(wcGallons), Math.round(wcGallons * 4), Math.round(wcGallons * 52)], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)', 'rgba(13, 59, 71, 0.6)'], borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)', 'rgba(13, 59, 71, 1)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

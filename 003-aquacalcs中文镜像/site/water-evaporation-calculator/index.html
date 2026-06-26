@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水分蒸发计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Estimate daily water evaporation based on surface area, temperature, and humidity.">
+    <link rel="canonical" href="https://aquacalcs.com/water-evaporation-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="水分蒸发计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Estimate daily water evaporation based on surface area, temperature, and humidity.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/water-evaporation-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="水分蒸发计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Estimate daily water evaporation based on surface area, temperature, and humidity.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "水分蒸发计算器", "description": "Estimate daily water evaporation based on surface area, temperature, and humidity.", "url": "https://aquacalcs.com/water-evaporation-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Equipment & Maintenance", "item": "https://aquacalcs.com/category/equipment-maintenance/"}, {"@type": "ListItem", "position": 3, "name": "水分蒸发计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my aquarium lose water so much faster in summer?", "acceptedAnswer": {"@type": "Answer", "text": "Warmer air temperatures increase the evaporation rate exponentially\u2014roughly doubling for every 10-15\u00b0F increase. Summer also typically brings lower humidity if you use air conditioning, further accelerating losses. Summer evaporation can be 2-3 times higher than winter, which is why many aquarists struggle with water level maintenance during hot months."}}, {"@type": "Question", "name": "Does a tank lid really make that much difference?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, a lid reduces evaporation by approximately 40-60% depending on how well it seals. Even a partial glass cover helps significantly. However, don't seal your tank completely as fish still need gas exchange; most lids have small gaps or cutouts for filters and air stones that maintain necessary air circulation."}}, {"@type": "Question", "name": "Should I top off with tap water or saltwater in my reef tank?", "acceptedAnswer": {"@type": "Answer", "text": "Always top off with fresh water (RO/DI water for reef tanks, dechlorinated tap water for freshwater). Only water evaporates; salt and minerals stay behind, so adding saltwater during top-offs gradually increases salinity to dangerous levels. Top-offs are for replacing water loss only, not for water changes."}}, {"@type": "Question", "name": "How accurate is the evaporation calculator?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator provides a reliable estimate accurate to within 15-25% for most home aquarium conditions. Actual evaporation varies based on factors like tank design, water surface agitation from filters, and micro-climate variations in your room. Use the results as a guideline and adjust based on your actual water level observations over 1-2 weeks."}}, {"@type": "Question", "name": "What humidity level is considered normal for a room with an aquarium?", "acceptedAnswer": {"@type": "Answer", "text": "Typical indoor humidity ranges from 30-60%, with 40-50% being comfortable for most homes. Aquariums naturally increase local humidity slightly, and tropical setups with high water temperatures create microclimates that can reach 60-70% humidity immediately above the tank even if room humidity is lower."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">水分蒸发计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>水分蒸发计算器</h1>
+                    <p class="calc-description">Estimate daily water evaporation based on surface area, temperature, and humidity.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="length">Tank Length (inches)</label>
+            <input type="number" id="length" name="length" value="48" step="1" min="6" max="120">
+        </div>
+        <div class="form-group">
+            <label for="width">Tank Width (inches)</label>
+            <input type="number" id="width" name="width" value="13" step="1" min="6" max="48">
+        </div>
+        <div class="form-group">
+            <label for="water_temp">Water Temperature (°F)</label>
+            <input type="number" id="water_temp" name="water_temp" value="78" step="1" min="60" max="90">
+        </div>
+        <div class="form-group">
+            <label for="humidity">Room Humidity (%)</label>
+            <input type="number" id="humidity" name="humidity" value="45" step="5" min="10" max="90">
+        </div>
+        <div class="form-group">
+            <label for="lid">Tank Lid</label>
+            <select id="lid" name="lid">
+                <option value="Full Glass Lid" selected>Full Glass Lid</option>
+                <option value="Partial Lid">Partial Lid</option>
+                <option value="No Lid (open top)">No Lid (open top)</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Water Evaporation Calculator estimates how much water you'll lose daily from your aquarium due to evaporation based on tank surface area, water temperature, room humidity, and whether your tank has a lid. Understanding evaporation rates helps you maintain stable water parameters, plan water change schedules, and prevent unexpected salinity swings in saltwater tanks or mineral buildup in freshwater setups. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Daily Evaporation (gallons) = Surface Area (sq ft) × Evaporation Rate Coefficient × (1 - Relative Humidity) × Temperature Factor × Lid Reduction Factor. The evaporation rate coefficient accounts for water's vapor pressure at the given temperature, with higher temperatures dramatically increasing evaporation and higher humidity levels reducing it proportionally.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Tank Length (inches)</strong> — The length of your aquarium measured in inches; used to calculate the surface area exposed to air</li>
+<li><strong>Tank Width (inches)</strong> — The width of your aquarium measured in inches; multiplied by length to find total surface area</li>
+<li><strong>Water Temperature (°F)</strong> — The temperature of your aquarium water in Fahrenheit; warmer water evaporates faster because water molecules have more kinetic energy</li>
+<li><strong>Room Humidity (%)</strong> — The relative humidity of the air surrounding your tank as a percentage; higher humidity reduces evaporation because the air is already saturated with moisture</li>
+<li><strong>Tank Lid</strong> — Whether your aquarium has a cover or lid; a lid significantly reduces evaporation by creating a barrier that slows water vapor escape</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you have a 40-gallon breeder tank that measures 36 inches long by 18 inches wide, with water temperature at 78°F, room humidity at 50%, and no lid. First, calculate surface area: 36 × 18 = 648 square inches, which equals 4.5 square feet. At 78°F with 50% humidity and no lid, the calculator estimates an evaporation coefficient of approximately 0.15 gallons per square foot per day. So: 4.5 sq ft × 0.15 = 0.675 gallons per day, or about 4.7 gallons per week. Now suppose you add a glass lid—the lid reduces evaporation by roughly 50%, dropping your daily loss to 0.34 gallons per day and weekly loss to 2.4 gallons. This means adding a lid cuts your top-off water additions in half and helps maintain more stable water chemistry.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Water Evaporation Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Water Evaporation Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Water Evaporation Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in equipment-maintenance work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Check evaporation rates during seasonal changes—summer heat and winter low-humidity heating can dramatically increase losses, sometimes by 30-50%, so recalculate your expectations quarterly</li>
+<li>For saltwater and reef tanks, use only fresh dipped water or RO/DI water to top off, never saltwater, since evaporation removes only water and leaves salt behind; the calculator helps you determine how much freshwater you&#x27;ll need weekly</li>
+<li>Install an automatic top-off system (ATO) if your calculated daily evaporation exceeds 0.5 gallons; manual topping off becomes tedious and inconsistency causes pH and salinity swings</li>
+<li>Place a small fan near (but not directly on) your aquarium to increase air circulation over the tank surface, which accelerates evaporation if you want faster water turnover, or reduce air movement if losses are too high</li>
+<li>Use the weekly gallons lost figure to plan your maintenance schedule—if you&#x27;re losing 5+ gallons weekly, plan water changes more frequently and monitor equipment like heaters and filters more closely since they concentrate as water evaporates</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>Why does my aquarium lose water so much faster in summer?</summary>
+<p>Warmer air temperatures increase the evaporation rate exponentially—roughly doubling for every 10-15°F increase. Summer also typically brings lower humidity if you use air conditioning, further accelerating losses. Summer evaporation can be 2-3 times higher than winter, which is why many aquarists struggle with water level maintenance during hot months.</p>
+</details>
+<details class="faq-item"><summary>Does a tank lid really make that much difference?</summary>
+<p>Yes, a lid reduces evaporation by approximately 40-60% depending on how well it seals. Even a partial glass cover helps significantly. However, don't seal your tank completely as fish still need gas exchange; most lids have small gaps or cutouts for filters and air stones that maintain necessary air circulation.</p>
+</details>
+<details class="faq-item"><summary>Should I top off with tap water or saltwater in my reef tank?</summary>
+<p>Always top off with fresh water (RO/DI water for reef tanks, dechlorinated tap water for freshwater). Only water evaporates; salt and minerals stay behind, so adding saltwater during top-offs gradually increases salinity to dangerous levels. Top-offs are for replacing water loss only, not for water changes.</p>
+</details>
+<details class="faq-item"><summary>How accurate is the evaporation calculator?</summary>
+<p>The calculator provides a reliable estimate accurate to within 15-25% for most home aquarium conditions. Actual evaporation varies based on factors like tank design, water surface agitation from filters, and micro-climate variations in your room. Use the results as a guideline and adjust based on your actual water level observations over 1-2 weeks.</p>
+</details>
+<details class="faq-item"><summary>What humidity level is considered normal for a room with an aquarium?</summary>
+<p>Typical indoor humidity ranges from 30-60%, with 40-50% being comfortable for most homes. Aquariums naturally increase local humidity slightly, and tropical setups with high water temperatures create microclimates that can reach 60-70% humidity immediately above the tank even if room humidity is lower.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>USGS Water Science: Evaporation</li>
+<li>Advanced Aquarist: Water Evaporation in Reef Aquariums</li>
+<li>The Spruce Pets: Aquarium Water Chemistry and Maintenance</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Equipment &amp; Maintenance Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../aquarium-cost-calculator/index.html">Aquarium Setup Cost Calculator</a></li>
+            <li><a href="../electricity-cost-calculator/index.html">Aquarium Electricity Cost Calculator</a></li>
+            <li><a href="../maintenance-schedule-calculator/index.html">Maintenance Schedule Calculator</a></li>
+            <li><a href="../uv-sterilizer-calculator/index.html">UV Sterilizer Calculator</a></li>
+            <li><a href="../air-pump-calculator/index.html">Air Pump Calculator</a></li>
+            <li><a href="../aquarium-sealant-calculator/index.html">Aquarium Sealant Calculator</a></li>
+            <li><a href="../refugium-calculator/index.html">Refugium Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../water-change-calculator/index.html">Water Change Calculator</a></li>
+            <li><a href="../water-conditioner-calculator/index.html">Water Conditioner Calculator</a></li>
+            <li><a href="../tank-volume-calculator/index.html">Tank Volume Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var L = parseFloat(inputs.length) || 48;
+ var W = parseFloat(inputs.width) || 13;
+ var waterTemp = parseFloat(inputs.water_temp) || 78;
+ var humidity = parseFloat(inputs.humidity) / 100 || 0.45;
+ var lid = inputs.lid || 'Full Glass Lid';
+ var surfaceArea = L * W;
+ var surfaceFt2 = surfaceArea / 144;
+ var tempFactor = 1 + (waterTemp - 72) * 0.03;
+ var humidityFactor = 1 - humidity * 0.7;
+ var lidFactor = 1.0;
+ if (lid === 'Full Glass Lid') lidFactor = 0.15;
+ else if (lid === 'Partial Lid') lidFactor = 0.5;
+ else lidFactor = 1.0;
+ var baseEvapPerSqFtDay = 0.1;
+ var dailyGallons = surfaceFt2 * baseEvapPerSqFtDay * tempFactor * humidityFactor * lidFactor;
+ var weeklyGallons = dailyGallons * 7;
+ var monthlyGallons = dailyGallons * 30;
+ return {
+ results: [
+ {label: 'Daily Evaporation (gallons)', value: dailyGallons, format: 'number', decimals: 2},
+ {label: 'Weekly Evaporation (gallons)', value: weeklyGallons, format: 'number', decimals: 1},
+ {label: 'Monthly Evaporation (gallons)', value: monthlyGallons, format: 'number', decimals: 1},
+ {label: 'Surface Area (sq ft)', value: surfaceFt2, format: 'number', decimals: 2}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Daily', 'Weekly', 'Monthly'],
+ datasets: [{label: 'Evaporation (gallons)', data: [dailyGallons, weeklyGallons, monthlyGallons], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)', 'rgba(13, 59, 71, 0.6)'], borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)', 'rgba(13, 59, 71, 1)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

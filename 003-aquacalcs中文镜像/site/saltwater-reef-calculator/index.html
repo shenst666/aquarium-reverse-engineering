@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海水礁岩计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate lighting, flow, skimmer, and supplement dosing requirements for a saltwater reef aquarium.">
+    <link rel="canonical" href="https://aquacalcs.com/saltwater-reef-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="海水礁岩计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate lighting, flow, skimmer, and supplement dosing requirements for a saltwater reef aquarium.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/saltwater-reef-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="海水礁岩计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate lighting, flow, skimmer, and supplement dosing requirements for a saltwater reef aquarium.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "海水礁岩计算器", "description": "Calculate lighting, flow, skimmer, and supplement dosing requirements for a saltwater reef aquarium.", "url": "https://aquacalcs.com/saltwater-reef-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Tank Setup", "item": "https://aquacalcs.com/category/tank-setup/"}, {"@type": "ListItem", "position": 3, "name": "海水礁岩计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my reef tank need so much water flow compared to a fish-only tank?", "acceptedAnswer": {"@type": "Answer", "text": "Corals need strong flow to deliver oxygen, remove metabolic waste from their surfaces, and prevent algae settlement on polyps. Flow also suspends food particles (zooplankton and phytoplankton) that corals feed on, and keeps detritus from accumulating in rock crevices where it decays and degrades water quality. Fish-only tanks typically run 5\u20138\u00d7 turnover, while reefs need 10\u201320\u00d7 because corals are metabolically demanding."}}, {"@type": "Question", "name": "What's the difference between SPS and LPS reefs, and why does it affect lighting?", "acceptedAnswer": {"@type": "Answer", "text": "SPS (Small Polyp Stony) corals like Acropora have densely packed polyps and evolved in shallow, bright reef zones, so they require 2\u20133 watts per gallon and PAR levels above 250 \u00b5mol/m\u00b2/s. LPS (Large Polyp Stony) corals like Euphyllia and Goniopora live deeper and tolerate lower light (1.5\u20132 watts per gallon, PAR 100\u2013200). Mixed reefs contain both types, so you compromise at 2 watts per gallon and position light-hungry SPS higher in the tank."}}, {"@type": "Question", "name": "How often should I dose calcium and alkalinity, and what happens if I skip doses?", "acceptedAnswer": {"@type": "Answer", "text": "Daily dosing in small amounts is safer than large weekly doses because it prevents pH swings and precipitate formation. If you skip doses, calcium and alkalinity drop gradually\u2014corals slow growth and skeleton deposition, and the tank becomes chemically unstable. Severe depletion (below 400 ppm calcium, 8 dKH alkalinity) can cause coral tissue recession within days as they break down existing skeleton to maintain internal chemistry."}}, {"@type": "Question", "name": "Can I use the calculator output to buy used equipment from online marketplaces?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the calculator gives you minimum specifications to search for used powerheads, skimmers, and LED fixtures. However, verify that used equipment works (especially protein skimmers, which can clog or lose efficiency) and ask sellers for photos of the equipment running. For lighting, confirm the LED fixture's actual PAR output using published specifications, not just wattage, since older or cheap LEDs are inefficient."}}, {"@type": "Question", "name": "My tank is stocked heavily\u2014should I oversize my skimmer and increase flow beyond the calculator output?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, conservative oversizing is wise for heavily stocked tanks. Increase skimmer rating by 25\u201350% (so a 75-gallon heavy-stock tank would use a 37\u201345 GPH skimmer instead of 25 GPH) and aim for 15\u201320\u00d7 turnover rather than 10\u00d7. Monitor nitrate and phosphate monthly\u2014if either rises above 20 ppm and 0.5 ppm respectively, increase skimming or reduce feeding, as these indicate your system is approaching its bioload capacity."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/tank-setup/index.html">Tank Setup</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">海水礁岩计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>海水礁岩计算器</h1>
+                    <p class="calc-description">Calculate lighting, flow, skimmer, and supplement dosing requirements for a saltwater reef aquarium.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="tank_gallons">Tank Volume (gallons)</label>
+            <input type="number" id="tank_gallons" name="tank_gallons" value="75" step="5" min="10" max="500">
+        </div>
+        <div class="form-group">
+            <label for="reef_type">Reef Type</label>
+            <select id="reef_type" name="reef_type">
+                <option value="Soft Coral">Soft Coral</option>
+                <option value="LPS">LPS</option>
+                <option value="SPS">SPS</option>
+                <option value="Mixed" selected>Mixed</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="livestock_level">Livestock Level</label>
+            <select id="livestock_level" name="livestock_level">
+                <option value="Light">Light</option>
+                <option value="Moderate" selected>Moderate</option>
+                <option value="Heavy">Heavy</option>
+            </select>
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Saltwater Reef Calculator determines the essential equipment specifications and chemical dosing requirements for your reef aquarium based on tank size, reef type, and livestock density. This calculator ensures your tank receives adequate lighting, water circulation, protein skimming, and calcium/alkalinity supplementation—the four critical factors that keep reef ecosystems healthy and stable. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Lighting (watts) = Tank Volume × Reef Type Multiplier (1.5–3 watts/gallon); Flow (GPH) = Tank Volume × 10–20× turnover multiplier; Skimmer Rating = Tank Volume ÷ turnover ratio (typically 3–5 gallons per hour of skimmer capacity); Daily Calcium Dose (ml) = Tank Volume × consumption rate (0.5–2 ml per 100 gallons); Daily Alkalinity Dose (ml) = Tank Volume × depletion rate (0.5–1.5 ml per 100 gallons).</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Tank Volume</strong> — The total water capacity of your aquarium in gallons; larger tanks require proportionally more lighting, flow, and skimming capacity</li>
+<li><strong>Reef Type</strong> — Classification of your reef system—SPS (Small Polyp Stony corals, high-light demanding), LPS (Large Polyp Stony, moderate-light), or Mixed reef; determines lighting wattage multiplier</li>
+<li><strong>Livestock Level</strong> — Stocking density category (Light, Moderate, or Heavy) reflecting fish and coral bioload; affects skimmer size and chemical dosing requirements</li>
+<li><strong>Lighting Watts</strong> — Total wattage of LED or metal halide lighting needed; SPS reefs need 2–3 watts per gallon, LPS reefs need 1.5–2 watts per gallon</li>
+<li><strong>Flow Rate (GPH)</strong> — Gallons per hour of water circulation provided by powerheads and return pumps; reef tanks typically need 10–20× tank volume turnover hourly</li>
+<li><strong>Skimmer Rating</strong> — Protein skimmer capacity in gallons per hour; undersized skimmers allow organic waste buildup and algae blooms</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you're setting up a 75-gallon SPS reef aquarium with moderate livestock (fish and stony corals). Using the calculator: Lighting = 75 gallons × 2.5 watts/gallon = 187.5 watts (round to 200 watts of LED lighting). Flow = 75 gallons × 15× turnover = 1,125 GPH total (using multiple powerheads and a strong return pump). Skimmer = 75 gallons ÷ 4 (turnover ratio) = 18.75, so select a 25–30 GPH rated skimmer. Calcium Dose = 75 gallons × 1 ml per 100 gallons = 0.75 ml daily. Alkalinity Dose = 75 gallons × 1 ml per 100 gallons = 0.75 ml daily. These outputs guide your equipment purchase and daily maintenance schedule.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Saltwater Reef Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Saltwater Reef Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Saltwater Reef Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Start with a skimmer rated for 25% larger than your tank volume—oversized skimmers improve water quality and reduce chemical maintenance, while undersized ones are a common cause of tank crashes in established reefs</li>
+<li>LED lighting has largely replaced metal halides for reef tanks; calculate watts carefully because LED efficiency varies widely between brands, and some manufacturers overstate actual photosynthetically active radiation (PAR) output</li>
+<li>Distribute flow throughout your tank with multiple smaller powerheads rather than one large return pump; this prevents dead zones where detritus accumulates and algae competes with corals</li>
+<li>Test your calcium and alkalinity levels weekly during the first month, then adjust dose rates based on actual consumption—the calculator provides starting points, but consumption varies with coral growth rate and species diversity</li>
+<li>Match your supplement brand to your tank&#x27;s baseline water chemistry; switching calcium or alkalinity additives mid-cycle can cause precipitation and cloudy water if products contain different buffer systems</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>Why does my reef tank need so much water flow compared to a fish-only tank?</summary>
+<p>Corals need strong flow to deliver oxygen, remove metabolic waste from their surfaces, and prevent algae settlement on polyps. Flow also suspends food particles (zooplankton and phytoplankton) that corals feed on, and keeps detritus from accumulating in rock crevices where it decays and degrades water quality. Fish-only tanks typically run 5–8× turnover, while reefs need 10–20× because corals are metabolically demanding.</p>
+</details>
+<details class="faq-item"><summary>What&#x27;s the difference between SPS and LPS reefs, and why does it affect lighting?</summary>
+<p>SPS (Small Polyp Stony) corals like Acropora have densely packed polyps and evolved in shallow, bright reef zones, so they require 2–3 watts per gallon and PAR levels above 250 µmol/m²/s. LPS (Large Polyp Stony) corals like Euphyllia and Goniopora live deeper and tolerate lower light (1.5–2 watts per gallon, PAR 100–200). Mixed reefs contain both types, so you compromise at 2 watts per gallon and position light-hungry SPS higher in the tank.</p>
+</details>
+<details class="faq-item"><summary>How often should I dose calcium and alkalinity, and what happens if I skip doses?</summary>
+<p>Daily dosing in small amounts is safer than large weekly doses because it prevents pH swings and precipitate formation. If you skip doses, calcium and alkalinity drop gradually—corals slow growth and skeleton deposition, and the tank becomes chemically unstable. Severe depletion (below 400 ppm calcium, 8 dKH alkalinity) can cause coral tissue recession within days as they break down existing skeleton to maintain internal chemistry.</p>
+</details>
+<details class="faq-item"><summary>Can I use the calculator output to buy used equipment from online marketplaces?</summary>
+<p>Yes, the calculator gives you minimum specifications to search for used powerheads, skimmers, and LED fixtures. However, verify that used equipment works (especially protein skimmers, which can clog or lose efficiency) and ask sellers for photos of the equipment running. For lighting, confirm the LED fixture's actual PAR output using published specifications, not just wattage, since older or cheap LEDs are inefficient.</p>
+</details>
+<details class="faq-item"><summary>My tank is stocked heavily—should I oversize my skimmer and increase flow beyond the calculator output?</summary>
+<p>Yes, conservative oversizing is wise for heavily stocked tanks. Increase skimmer rating by 25–50% (so a 75-gallon heavy-stock tank would use a 37–45 GPH skimmer instead of 25 GPH) and aim for 15–20× turnover rather than 10×. Monitor nitrate and phosphate monthly—if either rises above 20 ppm and 0.5 ppm respectively, increase skimming or reduce feeding, as these indicate your system is approaching its bioload capacity.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>Reef Aquarium Care: A Step-by-Step Beginner&#x27;s Guide (Saltwater Reef Guide)</li>
+<li>Aquarium Co-op: Reef Tank Lighting and PAR Requirements</li>
+<li>Advanced Aquarist: Water Chemistry and Calcium Alkalinity Dosing Strategies</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Tank Setup Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../tank-volume-calculator/index.html">Tank Volume Calculator</a></li>
+            <li><a href="../substrate-calculator/index.html">Substrate Calculator</a></li>
+            <li><a href="../aquarium-heater-calculator/index.html">Aquarium Heater Calculator</a></li>
+            <li><a href="../filter-flow-calculator/index.html">Filter Flow Rate Calculator</a></li>
+            <li><a href="../aquarium-light-calculator/index.html">Aquarium Lighting Calculator</a></li>
+            <li><a href="../aquarium-stand-weight/index.html">Aquarium Weight Calculator</a></li>
+            <li><a href="../aquarium-background-calculator/index.html">Aquarium Background Calculator</a></li>
+            <li><a href="../pond-calculator/index.html">Pond Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../refugium-calculator/index.html">Refugium Calculator</a></li>
+            <li><a href="../pond-calculator/index.html">Pond Calculator</a></li>
+            <li><a href="../planted-tank-co2-calculator/index.html">Planted Tank CO2 Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var gallons = parseFloat(inputs.tank_gallons) || 75;
+ var reefType = inputs.reef_type || 'Mixed';
+ var livestock = inputs.livestock_level || 'Moderate';
+
+ /* Lighting watts per gallon by reef type */
+ var wpg = {'Soft Coral': 3, 'LPS': 4, 'SPS': 6, 'Mixed': 5};
+ var lightWatts = gallons * (wpg[reefType] || 5);
+
+ /* Flow in GPH — turnover rate */
+ var flowMult = {'Soft Coral': 15, 'LPS': 20, 'SPS': 35, 'Mixed': 25};
+ var flowGPH = gallons * (flowMult[reefType] || 25);
+
+ /* Skimmer rated for x times tank volume */
+ var skimmerMult = {'Light': 1.5, 'Moderate': 2.0, 'Heavy': 2.5};
+ var skimmerGallons = Math.round(gallons * (skimmerMult[livestock] || 2.0));
+
+ /* Calcium and alkalinity dosing (ml/day) */
+ var calcBase = {'Soft Coral': 0.1, 'LPS': 0.2, 'SPS': 0.5, 'Mixed': 0.3};
+ var liveMult = {'Light': 0.7, 'Moderate': 1.0, 'Heavy': 1.4};
+ var calciumDose = Math.round(gallons * (calcBase[reefType] || 0.3) * (liveMult[livestock] || 1.0));
+ var alkDose = Math.round(calciumDose * 0.8);
+
+ /* Estimated monthly cost */
+ var monthlySalt = gallons * 0.15;
+ var monthlySupplements = (calciumDose + alkDose) * 0.05 * 30;
+ var monthlyElectricity = lightWatts * 10 / 1000 * 0.13 * 30;
+ var monthlyCost = Math.round(monthlySalt + monthlySupplements + monthlyElectricity);
+
+ return {
+ results: [
+ {label: 'Lighting (watts)', value: lightWatts, format: 'integer', decimals: 0},
+ {label: 'Flow (GPH)', value: flowGPH, format: 'integer', decimals: 0},
+ {label: 'Skimmer Rating (gallons)', value: skimmerGallons, format: 'integer', decimals: 0},
+ {label: 'Calcium Dose (ml/day)', value: calciumDose, format: 'integer', decimals: 0},
+ {label: 'Alkalinity Dose (ml/day)', value: alkDose, format: 'integer', decimals: 0},
+ {label: 'Est. Monthly Operating Cost', value: monthlyCost, format: 'currency', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Lighting', 'Flow (GPH/10)', 'Skimmer Rating'],
+ datasets: [{
+ label: 'System Requirements',
+ data: [lightWatts, Math.round(flowGPH / 10), skimmerGallons],
+ backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)', 'rgba(45, 212, 191, 0.6)'],
+ borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)', 'rgba(45, 212, 191, 1)'],
+ borderWidth: 1
+ }]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

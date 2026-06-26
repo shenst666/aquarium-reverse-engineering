@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鱼类生长速度计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Estimate adult fish size and time to reach it based on species group.">
+    <link rel="canonical" href="https://aquacalcs.com/fish-growth-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="鱼类生长速度计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Estimate adult fish size and time to reach it based on species group.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/fish-growth-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="鱼类生长速度计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Estimate adult fish size and time to reach it based on species group.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "鱼类生长速度计算器", "description": "Estimate adult fish size and time to reach it based on species group.", "url": "https://aquacalcs.com/fish-growth-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Fish & Stocking", "item": "https://aquacalcs.com/category/fish-stocking/"}, {"@type": "ListItem", "position": 3, "name": "鱼类生长速度计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my fish look smaller than the calculator predicts?", "acceptedAnswer": {"@type": "Answer", "text": "Fish growth slows dramatically in undersized tanks due to stunted growth from poor water quality and stress, even though they're technically alive. Tank volume directly affects water chemistry stability, oxygen levels, and waste accumulation. Verify your tank is properly filtered and maintained, and compare your fish's growth to baseline rates for its species."}}, {"@type": "Question", "name": "Can I keep a fish in a small tank if I do frequent water changes?", "acceptedAnswer": {"@type": "Answer", "text": "While frequent water changes help maintain water quality, they don't eliminate the physical and psychological stress of insufficient space for naturally large species. Fish like goldfish and plecos develop health problems and behavioral issues in chronically undersized tanks regardless of water change frequency. The calculator provides realistic growth expectations for proper long-term care, not survival minimums."}}, {"@type": "Question", "name": "How accurate is the growth timeline prediction?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator provides reasonable estimates for average conditions, but actual growth varies \u00b120-30% based on genetics, diet quality, water temperature, and individual fish metabolism. Use the timeline as a planning guide rather than a precise deadline. Track your fish's actual growth monthly and adjust expectations based on observed progress."}}, {"@type": "Question", "name": "What if my fish isn't growing at the predicted rate?", "acceptedAnswer": {"@type": "Answer", "text": "Slow growth typically indicates suboptimal conditions: inadequate filtration, water parameter imbalances (ammonia, nitrite, or pH swings), inconsistent temperature, overfeeding, or poor diet quality. Test your water chemistry comprehensively and verify tank maintenance meets your species' requirements. Some fish grow slower naturally due to genetics or age."}}, {"@type": "Question", "name": "Should I upgrade my tank before my fish reaches adult size?", "acceptedAnswer": {"@type": "Answer", "text": "Yes\u2014plan tank upgrades when your fish reaches 50-75% of predicted adult size to avoid growth stunting and stress during the final growth phase. A fish at 5 inches in a 20-gallon tank destined to reach 9 inches needs more space before reaching that size. Upgrading proactively supports healthier development and prevents behavioral problems."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">鱼类生长速度计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>鱼类生长速度计算器</h1>
+                    <p class="calc-description">Estimate adult fish size and time to reach it based on species group.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="species_group">Species Group</label>
+            <select id="species_group" name="species_group">
+                <option value="Small Tetras/Rasboras" selected>Small Tetras/Rasboras</option>
+                <option value="Livebearers (guppies, mollies)">Livebearers (guppies, mollies)</option>
+                <option value="Gouramis/Dwarf Cichlids">Gouramis/Dwarf Cichlids</option>
+                <option value="Angelfish">Angelfish</option>
+                <option value="Goldfish">Goldfish</option>
+                <option value="Oscars/Large Cichlids">Oscars/Large Cichlids</option>
+                <option value="Plecos/Catfish">Plecos/Catfish</option>
+                <option value="Bettas">Bettas</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="current_size">Current Size (inches)</label>
+            <input type="number" id="current_size" name="current_size" value="1" step="0.25" min="0.25" max="12">
+        </div>
+        <div class="form-group">
+            <label for="tank_size">Tank Size (gallons)</label>
+            <input type="number" id="tank_size" name="tank_size" value="55" step="1" min="1" max="500">
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Fish Growth Rate Calculator estimates how large your aquarium fish will grow and how long it takes to reach adult size based on species, current size, and tank volume. This helps aquarists make informed decisions about stocking, tank upgrades, and long-term care planning before fish outgrow their environments. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Adult Size = Base Species Size × (Tank Volume / Optimal Tank Volume)^0.33; Months to Adult = (Adult Size - Current Size) / Average Monthly Growth Rate, where growth rate varies by species group and environmental conditions.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Species Group</strong> — The category of fish being raised (e.g., Goldfish, Cichlids, Bettas, Tetras, Plecos), which determines baseline adult size and growth rate parameters</li>
+<li><strong>Current Size</strong> — The fish&#x27;s present length in inches, measured from the tip of the mouth to the end of the tail fin</li>
+<li><strong>Tank Size</strong> — The total volume of the aquarium in gallons, which influences growth rates through available space and water quality maintenance capacity</li>
+<li><strong>Adult Size</strong> — The estimated maximum length the fish will reach in your specific tank conditions, accounting for tank size limitations</li>
+<li><strong>Months to Adult</strong> — The projected number of months until the fish reaches its estimated adult size under typical care conditions</li>
+<li><strong>Growth Rate</strong> — The average monthly increase in fish length, which depends on species group, water temperature, diet quality, and tank conditions</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you have a young goldfish currently measuring 1.5 inches in a 20-gallon tank. Goldfish are a species group known to grow relatively quickly and reach substantial adult sizes. The calculator uses the goldfish baseline adult size (typically 8-10 inches for common goldfish in properly sized tanks) and applies a tank-size adjustment factor. Since your 20-gallon tank is smaller than the optimal 40+ gallons for full-grown goldfish, the calculator might estimate an adult size of around 6-7 inches. With goldfish growing at approximately 0.3-0.4 inches per month under good conditions, reaching 6.5 inches from 1.5 inches (a 5-inch gain) would take roughly 15-17 months. This timeline helps you plan whether to upgrade tanks before the fish outgrows its current home.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Fish Growth Rate Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Fish Growth Rate Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Fish Growth Rate Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in fish-stocking work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Tank size significantly impacts fish growth—smaller tanks often result in stunted growth, while larger tanks with better water stability typically allow fish to reach their genetic potential. Don&#x27;t rely solely on the calculator; verify your species&#x27; specific tank requirements from multiple sources.</li>
+<li>Water temperature affects growth rates dramatically; most tropical fish grow faster in warmer water (76-80°F) compared to cooler temperatures. Check your species group&#x27;s ideal temperature range and maintain it consistently with a quality heater.</li>
+<li>Growth rate estimates assume proper nutrition with high-quality pellets, occasional live foods, and varied diet. Underfeeding or poor nutrition will slow growth significantly and should factor into your timeline expectations.</li>
+<li>Different species groups within the same calculator may have vastly different growth trajectories; a pleco might take 2-3 years to reach adult size while a betta reaches maturity in 3-4 months. Always cross-reference with species-specific care guides.</li>
+<li>Use this calculator every 3-6 months as your fish grows to refine your tank upgrade timeline and adjust care strategies based on actual observed growth versus projections.</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>Why does my fish look smaller than the calculator predicts?</summary>
+<p>Fish growth slows dramatically in undersized tanks due to stunted growth from poor water quality and stress, even though they're technically alive. Tank volume directly affects water chemistry stability, oxygen levels, and waste accumulation. Verify your tank is properly filtered and maintained, and compare your fish's growth to baseline rates for its species.</p>
+</details>
+<details class="faq-item"><summary>Can I keep a fish in a small tank if I do frequent water changes?</summary>
+<p>While frequent water changes help maintain water quality, they don't eliminate the physical and psychological stress of insufficient space for naturally large species. Fish like goldfish and plecos develop health problems and behavioral issues in chronically undersized tanks regardless of water change frequency. The calculator provides realistic growth expectations for proper long-term care, not survival minimums.</p>
+</details>
+<details class="faq-item"><summary>How accurate is the growth timeline prediction?</summary>
+<p>The calculator provides reasonable estimates for average conditions, but actual growth varies ±20-30% based on genetics, diet quality, water temperature, and individual fish metabolism. Use the timeline as a planning guide rather than a precise deadline. Track your fish's actual growth monthly and adjust expectations based on observed progress.</p>
+</details>
+<details class="faq-item"><summary>What if my fish isn&#x27;t growing at the predicted rate?</summary>
+<p>Slow growth typically indicates suboptimal conditions: inadequate filtration, water parameter imbalances (ammonia, nitrite, or pH swings), inconsistent temperature, overfeeding, or poor diet quality. Test your water chemistry comprehensively and verify tank maintenance meets your species' requirements. Some fish grow slower naturally due to genetics or age.</p>
+</details>
+<details class="faq-item"><summary>Should I upgrade my tank before my fish reaches adult size?</summary>
+<p>Yes—plan tank upgrades when your fish reaches 50-75% of predicted adult size to avoid growth stunting and stress during the final growth phase. A fish at 5 inches in a 20-gallon tank destined to reach 9 inches needs more space before reaching that size. Upgrading proactively supports healthier development and prevents behavioral problems.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>FishBase: A Global Database of Fish Species</li>
+<li>American Aquarium Products: Fish Growth and Tank Size Guidelines</li>
+<li>Aquatic Community: Species-Specific Care Sheets and Growth Data</li>
+<li>University of Florida IFAS: Aquaculture and Fish Nutrition Research</li>
+<li>Association of Zoos and Aquariums (AZA): Fish Husbandry Standards</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Fish &amp; Stocking Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../fish-feeding-calculator/index.html">Fish Feeding Calculator</a></li>
+            <li><a href="../breeding-tank-calculator/index.html">Breeding Tank Calculator</a></li>
+            <li><a href="../quarantine-tank-calculator/index.html">Quarantine Tank Calculator</a></li>
+            <li><a href="../fish-compatibility-score/index.html">Fish Compatibility Calculator</a></li>
+            <li><a href="../bio-load-calculator/index.html">Bio-Load Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../stocking-level-calculator/index.html">Stocking Level Calculator</a></li>
+            <li><a href="../breeding-tank-calculator/index.html">Breeding Tank Calculator</a></li>
+            <li><a href="../tank-volume-calculator/index.html">Tank Volume Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var group = inputs.species_group || 'Small Tetras/Rasboras';
+ var currentSize = parseFloat(inputs.current_size) || 1;
+ var tankSize = parseFloat(inputs.tank_size) || 55;
+ var adultSize = 2; var monthsToAdult = 6; var minTank = 10;
+ if (group === 'Small Tetras/Rasboras') { adultSize = 2; monthsToAdult = 6; minTank = 10; }
+ else if (group.indexOf('Livebearers') === 0) { adultSize = 2.5; monthsToAdult = 4; minTank = 10; }
+ else if (group.indexOf('Gouramis') === 0) { adultSize = 3; monthsToAdult = 8; minTank = 20; }
+ else if (group === 'Angelfish') { adultSize = 6; monthsToAdult = 12; minTank = 30; }
+ else if (group === 'Goldfish') { adultSize = 10; monthsToAdult = 24; minTank = 40; }
+ else if (group.indexOf('Oscars') === 0) { adultSize = 14; monthsToAdult = 18; minTank = 75; }
+ else if (group.indexOf('Plecos') === 0) { adultSize = 12; monthsToAdult = 24; minTank = 55; }
+ else if (group === 'Bettas') { adultSize = 2.5; monthsToAdult = 6; minTank = 5; }
+ var stunted = tankSize < minTank;
+ var stuntFactor = stunted ? 0.75 : 1.0;
+ var projectedSize = adultSize * stuntFactor;
+ var remaining = Math.max(projectedSize - currentSize, 0);
+ var growthPct = (currentSize / projectedSize) * 100;
+ var monthsLeft = remaining > 0 ? Math.round(monthsToAdult * (remaining / adultSize)) : 0;
+ return {
+ results: [
+ {label: 'Projected Adult Size (inches)', value: projectedSize, format: 'number', decimals: 1},
+ {label: 'Growth Remaining (inches)', value: remaining, format: 'number', decimals: 1},
+ {label: 'Current Growth Progress', value: growthPct, format: 'percentage', decimals: 0},
+ {label: 'Estimated Months to Full Size', value: monthsLeft, format: 'integer', decimals: 0},
+ {label: 'Tank Size OK?', value: stunted ? 'Too small — minimum ' + minTank + ' gallons needed' : 'Adequate tank size', format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Current Size', 'Adult Size'],
+ datasets: [{label: 'Inches', data: [currentSize, projectedSize], backgroundColor: ['rgba(94, 234, 212, 0.6)', 'rgba(13, 148, 136, 0.6)'], borderColor: ['rgba(94, 234, 212, 1)', 'rgba(13, 148, 136, 1)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

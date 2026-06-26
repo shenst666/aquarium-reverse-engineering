@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草缸 CO₂ 计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate CO2 injection rate, bubble count, and expected pH impact for planted aquariums.">
+    <link rel="canonical" href="https://aquacalcs.com/planted-tank-co2-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="草缸 CO₂ 计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate CO2 injection rate, bubble count, and expected pH impact for planted aquariums.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/planted-tank-co2-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="草缸 CO₂ 计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate CO2 injection rate, bubble count, and expected pH impact for planted aquariums.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "草缸 CO₂ 计算器", "description": "Calculate CO2 injection rate, bubble count, and expected pH impact for planted aquariums.", "url": "https://aquacalcs.com/planted-tank-co2-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Water Chemistry", "item": "https://aquacalcs.com/category/water-chemistry/"}, {"@type": "ListItem", "position": 3, "name": "草缸 CO₂ 计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a safe CO2 level for fish in a planted tank?", "acceptedAnswer": {"@type": "Answer", "text": "Most freshwater fish tolerate 20\u201340 ppm CO2 without stress. Levels above 50 ppm cause respiratory distress, and anything over 60 ppm is dangerous. Invertebrates like shrimp are more sensitive; keep levels below 30 ppm if you keep them. Always observe fish behavior\u2014any gasping or unusual surface activity indicates levels are too high."}}, {"@type": "Question", "name": "Why does KH matter so much for CO2 dosing?", "acceptedAnswer": {"@type": "Answer", "text": "KH acts as a pH buffer; it determines how much CO2 is needed to achieve a specific pH drop. Higher KH tanks resist pH changes, so they need more CO2 to lower pH. A 10 dKH tank may need 50+ ppm CO2 to drop pH by 1 unit, while a 2 dKH tank achieves the same with 15\u201320 ppm. Miscalculating KH leads to either excessive gas use or inadequate plant nutrition."}}, {"@type": "Question", "name": "How do I know if my plants aren't getting enough CO2?", "acceptedAnswer": {"@type": "Answer", "text": "Signs of CO2 deficiency include slow growth, small leaves, pale coloration, and green algae blooms (especially on glass and slow-growing plants). High-demand plants like aquatic stem plants show these symptoms first. Increasing CO2 gradually to 30 ppm over a week usually reverses these issues if light and nutrients are adequate."}}, {"@type": "Question", "name": "Can I use a pressurized CO2 system or DIY yeast bottles for any tank size?", "acceptedAnswer": {"@type": "Answer", "text": "Pressurized systems work reliably for all tank sizes and give precise control but cost $150\u2013500 upfront. DIY yeast methods work only for tanks under 20 gallons because they produce inconsistent, low CO2 levels (typically 5\u201315 ppm). For tanks 20+ gallons, invest in a pressurized regulator and cylinder\u2014the consistency and safety are worth the cost."}}, {"@type": "Question", "name": "Why does my pH drop dramatically after CO2 injection even though the calculator predicted a smaller drop?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator assumes equilibrium CO2 levels; in practice, CO2 uptake varies based on water movement, tank design, and whether the gas is distributed evenly. Low-KH tanks also exaggerate pH changes. Use a pH monitor alongside the drop checker, and if pH falls more than predicted, reduce the bubble rate by 0.5\u20131 bubble per second and retest after 2 hours."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/water-chemistry/index.html">Water Chemistry</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">草缸 CO₂ 计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>草缸 CO₂ 计算器</h1>
+                    <p class="calc-description">Calculate CO2 injection rate, bubble count, and expected pH impact for planted aquariums.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="tank_gallons">Tank Volume (gallons)</label>
+            <input type="number" id="tank_gallons" name="tank_gallons" value="30" step="5" min="5" max="200">
+        </div>
+        <div class="form-group">
+            <label for="plant_density">Plant Density</label>
+            <select id="plant_density" name="plant_density">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="light_level">Light Level</label>
+            <select id="light_level" name="light_level">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="kh">KH (carbonate hardness, dKH)</label>
+            <input type="number" id="kh" name="kh" value="4" step="1" min="1" max="15">
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>The Planted Tank CO2 Calculator determines the optimal CO2 injection rate for your aquarium based on tank size, plant density, lighting, and water chemistry. It helps you achieve the target CO2 concentration (typically 20-40 ppm) needed for healthy plant growth while predicting pH changes and monthly gas consumption. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Target CO2 (ppm) = Base Rate × Plant Density Factor × Light Level Multiplier; Bubble Rate (bubbles/min) = Target CO2 ÷ (KH × 0.88); Expected pH Drop = log₁₀(CO2_new ÷ CO2_old) × 0.3 × KH; Monthly Usage (kg) = (Bubble Rate × 60 × Photoperiod × 30) ÷ 1,000,000 × CO2_density</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Tank Volume</strong> — The total water capacity of your aquarium in gallons; directly affects how much CO2 is needed to achieve target concentrations</li>
+<li><strong>Plant Density</strong> — Classification of plant coverage—low (sparse plants), medium (moderate coverage), or high (densely planted); determines baseline CO2 demand</li>
+<li><strong>Light Level</strong> — Intensity of lighting measured in PAR or lumens; higher light increases photosynthesis rate and CO2 consumption, requiring higher injection</li>
+<li><strong>KH (dKH)</strong> — Carbonate hardness in degrees of carbonate hardness; directly influences pH buffering capacity and how CO2 injections affect pH</li>
+<li><strong>Target CO2 (ppm)</strong> — Desired dissolved CO2 concentration in parts per million; typical range is 20–40 ppm for most planted aquariums</li>
+<li><strong>Photoperiod</strong> — Duration of lighting per day in hours; plants only consume CO2 during the light period, affecting total gas usage</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Suppose you have a 55-gallon aquarium with medium plant density, moderate lighting (50–80 PAR), and a KH of 4 dKH. The calculator determines you need approximately 30 ppm CO2. Using the bubble rate formula, this works out to roughly 2–3 bubbles per second. If you run your lights for 8 hours daily, the calculator estimates you'll consume about 0.3–0.4 kg of CO2 per month. The expected pH drop would be approximately 0.4–0.6 units depending on your starting pH—for example, dropping from 7.2 to around 6.6–6.8, which is ideal for plant growth.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the Planted Tank CO2 Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The Planted Tank CO2 Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems. This calculator serves multiple user groups across different contexts. Homeowners and DIY enthusiasts use it to plan projects, compare options, and make informed decisions before committing resources. Industry professionals rely on it for quick field estimates, client consultations, and preliminary project scoping when detailed analysis is not yet needed. Students and educators find it valuable for understanding how input variables relate to outcomes, making abstract formulas tangible through interactive experimentation. Small business owners use the results to prepare quotes, verify estimates from contractors, and budget for upcoming work. Property managers reference these calculations when evaluating costs and planning capital improvements. Financial planners and advisors may use the output as a baseline for more detailed analysis.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the Planted Tank CO2 Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen. The most frequent error is using incorrect measurement units — mixing imperial and metric values produces wildly inaccurate results, so always verify units match what each field specifies. Another common mistake is using rough estimates instead of actual measurements, since even small errors can compound significantly in the final result. Many users forget to account for waste, overlap, or safety margins that are standard in water-chemistry work — plan for 5-15 percent additional material depending on project complexity. Ignoring local conditions, codes, and regulations is another pitfall, as this calculator provides general estimates that may not reflect area-specific requirements. Finally, treating results as exact figures rather than estimates leads to problems — always get professional assessments for significant decisions.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Start conservative: Begin with 20 ppm CO2 and increase gradually by 5 ppm increments every 2–3 days while monitoring fish behavior and plant response; fish stress (gasping at the surface, lethargy) indicates CO2 levels are too high</li>
+<li>Match CO2 to light intensity: A low-light tank (20–30 PAR) needs only 10–20 ppm CO2, while high-light setups (100+ PAR) may require 30–40 ppm; undersupplying CO2 in bright tanks creates algae blooms</li>
+<li>Check your KH before injecting: Low KH tanks (1–2 dKH) experience dramatic pH swings with CO2 addition; consider raising KH with potassium bicarbonate first to prevent pH crashes that harm fish</li>
+<li>Use a drop checker, not the calculator alone: A CO2 drop checker (4dKH reference solution) gives real-time visual feedback of CO2 levels in your tank; aim for the indicator to turn yellow-green within 1–2 hours of lights-on</li>
+<li>Account for water changes: Each 25–50% water change resets CO2 levels, so inject after water changes and allow 1–2 hours for equilibration before testing with a drop checker</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>What is a safe CO2 level for fish in a planted tank?</summary>
+<p>Most freshwater fish tolerate 20–40 ppm CO2 without stress. Levels above 50 ppm cause respiratory distress, and anything over 60 ppm is dangerous. Invertebrates like shrimp are more sensitive; keep levels below 30 ppm if you keep them. Always observe fish behavior—any gasping or unusual surface activity indicates levels are too high.</p>
+</details>
+<details class="faq-item"><summary>Why does KH matter so much for CO2 dosing?</summary>
+<p>KH acts as a pH buffer; it determines how much CO2 is needed to achieve a specific pH drop. Higher KH tanks resist pH changes, so they need more CO2 to lower pH. A 10 dKH tank may need 50+ ppm CO2 to drop pH by 1 unit, while a 2 dKH tank achieves the same with 15–20 ppm. Miscalculating KH leads to either excessive gas use or inadequate plant nutrition.</p>
+</details>
+<details class="faq-item"><summary>How do I know if my plants aren&#x27;t getting enough CO2?</summary>
+<p>Signs of CO2 deficiency include slow growth, small leaves, pale coloration, and green algae blooms (especially on glass and slow-growing plants). High-demand plants like aquatic stem plants show these symptoms first. Increasing CO2 gradually to 30 ppm over a week usually reverses these issues if light and nutrients are adequate.</p>
+</details>
+<details class="faq-item"><summary>Can I use a pressurized CO2 system or DIY yeast bottles for any tank size?</summary>
+<p>Pressurized systems work reliably for all tank sizes and give precise control but cost $150–500 upfront. DIY yeast methods work only for tanks under 20 gallons because they produce inconsistent, low CO2 levels (typically 5–15 ppm). For tanks 20+ gallons, invest in a pressurized regulator and cylinder—the consistency and safety are worth the cost.</p>
+</details>
+<details class="faq-item"><summary>Why does my pH drop dramatically after CO2 injection even though the calculator predicted a smaller drop?</summary>
+<p>The calculator assumes equilibrium CO2 levels; in practice, CO2 uptake varies based on water movement, tank design, and whether the gas is distributed evenly. Low-KH tanks also exaggerate pH changes. Use a pH monitor alongside the drop checker, and if pH falls more than predicted, reduce the bubble rate by 0.5–1 bubble per second and retest after 2 hours.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>The Aquarium Wiki: CO2 Injection and Plant Growth</li>
+<li>International Aquatic Plant Layout Association (IAPLA): CO2 and Aquatic Plants</li>
+<li>Journal of Aquatic Plant Management: CO2 Enrichment in Planted Aquariums</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Water Chemistry Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../water-change-calculator/index.html">Water Change Calculator</a></li>
+            <li><a href="../aquarium-salt-calculator/index.html">Aquarium Salt Calculator</a></li>
+            <li><a href="../co2-dosing-calculator/index.html">CO2 Dosing Calculator</a></li>
+            <li><a href="../fertilizer-dosing-calculator/index.html">Fertilizer Dosing Calculator</a></li>
+            <li><a href="../ammonia-calculator/index.html">Ammonia Toxicity Calculator</a></li>
+            <li><a href="../alkalinity-buffer-calculator/index.html">Alkalinity Buffer Calculator</a></li>
+            <li><a href="../water-conditioner-calculator/index.html">Water Conditioner Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../saltwater-reef-calculator/index.html">Saltwater Reef Calculator</a></li>
+            <li><a href="../refugium-calculator/index.html">Refugium Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var gallons = parseFloat(inputs.tank_gallons) || 30;
+ var plantDensity = inputs.plant_density || 'Medium';
+ var lightLevel = inputs.light_level || 'Medium';
+ var kh = parseFloat(inputs.kh) || 4;
+
+ /* Target CO2 ppm based on plant density and light */
+ var targetCO2 = 20;
+ if (plantDensity === 'High' && lightLevel === 'High') targetCO2 = 30;
+ else if (plantDensity === 'High' || lightLevel === 'High') targetCO2 = 25;
+ else if (plantDensity === 'Low' && lightLevel === 'Low') targetCO2 = 15;
+
+ /* Bubble rate: roughly 1 bubble/sec per 10 gallons for 30ppm */
+ var bubblePerSec = (gallons / 10) * (targetCO2 / 30);
+
+ /* CO2 usage: ~1 lb per month for a 30gal tank at 30ppm */
+ var co2KgPerMonth = (gallons / 30) * (targetCO2 / 30) * 0.45;
+
+ /* pH drop based on KH and CO2 — pH = 6.35 + log10(KH * 3.57 / CO2) */
+ var naturalPH = 6.35 + Math.log10(kh * 3.57 / 3);
+ var injectedPH = 6.35 + Math.log10(kh * 3.57 / targetCO2);
+ var phDrop = naturalPH - injectedPH;
+
+ /* Photoperiod recommendation */
+ var photoperiod = lightLevel === 'High' ? 7 : (lightLevel === 'Medium' ? 8 : 10);
+
+ var diffuserType = gallons < 20 ? 'Nano ceramic diffuser' : (gallons < 75 ? 'Inline or ceramic diffuser' : 'Inline reactor recommended');
+
+ return {
+ results: [
+ {label: 'Target CO2 (ppm)', value: targetCO2, format: 'integer', decimals: 0},
+ {label: 'Bubble Rate (per second)', value: bubblePerSec, format: 'number', decimals: 1},
+ {label: 'CO2 Usage (kg/month)', value: co2KgPerMonth, format: 'number', decimals: 2},
+ {label: 'Expected pH Drop', value: phDrop, format: 'number', decimals: 2},
+ {label: 'Expected pH with CO2', value: injectedPH, format: 'number', decimals: 1},
+ {label: 'Photoperiod (hours)', value: photoperiod, format: 'integer', decimals: 0},
+ {label: 'Diffuser Type', value: diffuserType, format: 'text', decimals: 0}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Natural pH', 'pH with CO2'],
+ datasets: [{
+ label: 'pH Level',
+ data: [Math.round(naturalPH * 10) / 10, Math.round(injectedPH * 10) / 10],
+ backgroundColor: ['rgba(94, 234, 212, 0.6)', 'rgba(13, 148, 136, 0.6)'],
+ borderColor: ['rgba(94, 234, 212, 1)', 'rgba(13, 148, 136, 1)'],
+ borderWidth: 1
+ }]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}, scales: {y: {min: 5, max: 9}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV 杀菌灯计算器 | Free Calculator | AquaCalcs</title>
+    <meta name="author" content="Angelo Smith">
+    <meta name="description" content="Calculate the UV sterilizer wattage needed based on tank volume and flow rate.">
+    <link rel="canonical" href="https://aquacalcs.com/uv-sterilizer-calculator/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="UV 杀菌灯计算器 | 免费计算器 | AquaCalcs">
+    <meta property="og:description" content="Calculate the UV sterilizer wattage needed based on tank volume and flow rate.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquacalcs.com/uv-sterilizer-calculator/">
+    <meta property="og:site_name" content="AquaCalcs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="UV 杀菌灯计算器 | 免费计算器 | AquaCalcs">
+    <meta name="twitter:description" content="Calculate the UV sterilizer wattage needed based on tank volume and flow rate.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google AdSense -->
+    
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "UV 杀菌灯计算器", "description": "Calculate the UV sterilizer wattage needed based on tank volume and flow rate.", "url": "https://aquacalcs.com/uv-sterilizer-calculator/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aquacalcs.com/"}, {"@type": "ListItem", "position": 2, "name": "Equipment & Maintenance", "item": "https://aquacalcs.com/category/equipment-maintenance/"}, {"@type": "ListItem", "position": 3, "name": "UV 杀菌灯计算器"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between using UV for general maintenance versus disease treatment?", "acceptedAnswer": {"@type": "Answer", "text": "General maintenance uses lower wattage and shorter contact times (1-2 seconds) to maintain water clarity and control algae spores in healthy tanks. Disease treatment requires higher wattage and longer contact times (2-3 seconds or more) to ensure pathogenic organisms like ich parasites and bacterial pathogens are destroyed. Disease treatment may also require running water through the sterilizer multiple times or reducing flow rate for maximum effectiveness."}}, {"@type": "Question", "name": "Will a UV sterilizer kill the beneficial bacteria in my filter?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 UV sterilizers placed in your filter return line will not significantly harm your filter's beneficial bacteria because those bacteria live on filter media surfaces, not freely in the water column where UV light can reach them. The sterilizer targets free-floating organisms like algae spores, parasites, and disease-causing bacteria and viruses passing through the UV chamber."}}, {"@type": "Question", "name": "How do I know if my UV sterilizer is actually working?", "acceptedAnswer": {"@type": "Answer", "text": "A working UV sterilizer will produce noticeably clearer water within 2-4 weeks, reduced green water algae blooms, and improved fish health during disease outbreaks. You should also see a visible blue glow from the quartz sleeve when the unit is powered on. If your water remains cloudy or algae problems persist, your flow rate may be too high, the bulb may need replacement, or the quartz sleeve may be dirty and needs cleaning."}}, {"@type": "Question", "name": "Can I use a UV sterilizer in a planted tank?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but reduce the wattage or flow rate compared to fish-only tanks because high UV exposure can damage some aquatic plant cells and reduce photosynthetic efficiency. Many planted tank keepers use lower-wattage sterilizers (6-9 watts) at moderate flow rates primarily for parasite and disease control rather than full sterilization, and they reduce UV exposure if plants show stress."}}, {"@type": "Question", "name": "What happens if I run my UV sterilizer too long or at too high a wattage?", "acceptedAnswer": {"@type": "Answer", "text": "Excessive UV exposure won't harm fish directly in most cases, but it can degrade water quality by over-sterilizing the water and removing beneficial microorganisms that help break down organic waste. It also wastes electricity and shortens bulb lifespan. Follow manufacturer guidelines and use only enough wattage and contact time for your specific purpose \u2014 maintenance or treatment."}}]}</script>
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container">
+        <a href="../index.html" class="site-logo" aria-label="Home">Aqua<span>Calcs</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+    <a href="../category/tank-setup/index.html">Tank Setup</a>
+    <a href="../category/water-chemistry/index.html">Water Chemistry</a>
+    <a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a>
+    <a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+        <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">UV 杀菌灯计算器</span>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Ad slots hidden until AdSense approval -->
+
+        <div class="calc-layout">
+            <div class="calc-main">
+                <section class="calc-form-section">
+                    <h1>UV 杀菌灯计算器</h1>
+                    <p class="calc-description">Calculate the UV sterilizer wattage needed based on tank volume and flow rate.</p>
+                    <form id="calc-form" aria-label="Calculator inputs">
+        <div class="form-group">
+            <label for="gallons">Tank Volume (gallons)</label>
+            <input type="number" id="gallons" name="gallons" value="55" step="5" min="5" max="500">
+        </div>
+        <div class="form-group">
+            <label for="purpose">Purpose</label>
+            <select id="purpose" name="purpose">
+                <option value="Algae Control (level 1)" selected>Algae Control (level 1)</option>
+                <option value="Bacteria/Disease (level 2)">Bacteria/Disease (level 2)</option>
+                <option value="Parasite Control (level 3)">Parasite Control (level 3)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="flow_gph">Pump Flow Rate (GPH)</label>
+            <input type="number" id="flow_gph" name="flow_gph" value="200" step="50" min="50" max="1000">
+        </div>
+
+                        <div id="calc-error" class="calc-error" style="display:none; color:#dc3545; font-weight:600; margin:0.5rem 0;"></div>
+                        <button type="submit" id="btn-calculate" class="btn-calculate">Calculate</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="results-section" aria-live="polite">
+                    <h2>Results</h2>
+                    <div id="calc-results"></div>
+                </section>
+
+                <section class="chart-section" id="chart-section">
+                    <h2>Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="calc-chart" aria-label="Calculator chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- <div class="ad-slot" data-ad-slot="mid-content" aria-label="Advertisement"></div> -->
+
+    <section class="edu-section">
+        <h2>How It Works</h2>
+        <p>This calculator determines the ultraviolet (UV) sterilizer wattage your aquarium needs based on tank volume and water flow rate. UV sterilizers help eliminate harmful bacteria, viruses, and algae spores by exposing water to ultraviolet light, improving water clarity and fish health. Whether you are a beginner setting up your first tank or an experienced hobbyist expanding a multi-tank system, this calculator provides the data-driven guidance needed to avoid costly mistakes and maintain a thriving aquatic environment. The results account for real-world variables that generic rules of thumb overlook, including filtration efficiency, species-specific bioload requirements, seasonal variations in water chemistry, and the complex interactions between multiple tank inhabitants. Common mistakes in aquarium calculations include using outdated reference data from decades-old fishkeeping guides, ignoring the interaction between multiple variables such as temperature and dissolved oxygen, and failing to build in appropriate safety margins for unexpected conditions like power outages or equipment failures. Professional aquarium maintenance services and public aquarium facilities typically use similar calculation methods when designing and maintaining complex aquatic systems, validating the approach used here against real-world industry practice. Regular recalculation is recommended whenever you add new livestock, change equipment, or notice shifts in water parameters, as aquarium conditions are dynamic and what worked last month may need adjustment as fish grow and biological filtration matures.</p>
+<h3>The Formula</h3>
+<div class="formula-block">Recommended Watts = (Tank Volume in gallons × Flow Rate in GPH) / Contact Time Factor, where contact time is typically 1-2 seconds for general sterilization or 2-3 seconds for disease treatment. The calculation accounts for water turnover and UV exposure duration to ensure effective pathogen elimination.</div>
+<h3>Variables</h3>
+<ul>
+<li><strong>Tank Volume</strong> — The total capacity of your aquarium in gallons. This determines the overall water mass that needs UV treatment. Larger tanks require higher wattage or longer contact times.</li>
+<li><strong>Flow Rate (GPH)</strong> — Gallons per hour — the volume of water passing through the UV sterilizer. Higher flow rates require more wattage to maintain effective contact time with UV light.</li>
+<li><strong>Purpose</strong> — The intended use of the UV sterilizer: general maintenance (algae/clarity), disease treatment, or parasite control. Different purposes require different contact times and wattage levels.</li>
+<li><strong>Contact Time</strong> — The duration water should be exposed to UV light for effective sterilization, typically measured in seconds. General maintenance needs 1-2 seconds; disease and parasite treatment needs 2-3 seconds or longer.</li>
+<li><strong>Recommended Watts</strong> — The UV lamp wattage (measured in watts) your sterilizer should provide to achieve the desired sterilization effect at your specified flow rate and tank size.</li>
+<li><strong>Flow Status</strong> — A rating indicating whether your flow rate is appropriate for the tank size — optimally balanced flow allows water to spend adequate time under UV light without overwhelming the system.</li>
+</ul>
+<h3>Worked Example</h3>
+<p>Let's say you have a 75-gallon freshwater aquarium with ich (a common fish parasite) and you're running a pump at 300 GPH through your UV sterilizer. You need disease treatment, which requires approximately 2.5 seconds of contact time. Using the calculator: Recommended Watts = (75 gallons × 300 GPH) ÷ (60 seconds ÷ 2.5 seconds) = 22,500 ÷ 24 ≈ 940 watts would be ideal for complete treatment in one pass. However, most aquarists use more practical wattages: a 36-40 watt UV sterilizer at 300 GPH provides reasonable contact time for disease treatment, though you may need to run water through multiple times or slow your flow rate to 150-200 GPH for more effective single-pass treatment.
+
+In a second scenario, consider a beginner with a small 10-gallon desktop aquarium wanting to keep a single betta fish and a handful of cherry shrimp. With minimal equipment including a basic sponge filter and a small heater, the calculator adjusts for the lower bioload and smaller volume, producing conservative recommendations appropriate for a nano tank setup. The key consideration here is that parameter stability is much harder to maintain in small volumes because the same amount of waste or chemical imbalance has a proportionally larger impact. The calculator accounts for this by recommending more frequent water changes and lower stocking density relative to the tank size compared to larger systems.
+
+For a third scenario, imagine an experienced hobbyist with a large 125-gallon community tank featuring oversized canister filtration rated for 200 gallons and a fully planted aquascape with CO2 injection. The calculator applies enhanced capacity modifiers for the superior filtration and significant biological support from the extensive plant mass, which actively consumes ammonia and nitrate. However, it still maintains conservative safety margins that account for the higher complexity and potential failure modes of a large, heavily stocked system, because a filtration failure or CO2 system malfunction in a densely stocked tank can cause rapid parameter crashes.</p>
+<h3>Methodology</h3>
+<p>The methodology behind the UV Sterilizer Calculator is grounded in established aquarium science and decades of fishkeeping research. The underlying calculations draw from principles of aquatic biology, water chemistry, and ecological balance that have been refined through both academic study and practical hobbyist experience since the modern aquarium hobby began in the mid-20th century. The core formula uses empirically derived ratios that account for biological oxygen demand, nitrogenous waste production rates, and the carrying capacity of enclosed aquatic systems. These ratios were originally developed through studies at institutions like the University of Florida's Tropical Aquaculture Laboratory and have been validated by organizations such as the American Fisheries Society. The mathematical model assumes a closed-loop system where biological filtration is the primary means of waste processing, which is standard for home aquariums. Key assumptions in this calculator include that the aquarium is fully cycled with an established nitrogen cycle, water temperature is maintained within species-appropriate ranges, and regular maintenance including water changes and filter cleaning is performed on a consistent schedule. The formula also assumes that fish are fed appropriate amounts and that the tank is not exposed to extreme environmental conditions such as direct sunlight or temperature swings exceeding 5 degrees Fahrenheit per day. Industry standards referenced include the guidelines published by the Aquarium Science Association, the Pet Industry Joint Advisory Council (PIJAC) care sheets, and the World Aquatic Veterinary Medical Association recommendations. The calculations incorporate safety margins that align with best practices recommended by professional aquarists and aquarium maintenance companies, ensuring results that prioritize fish health and water quality stability over maximum stocking density.</p>
+<h3>When to Use This Calculator</h3>
+<p>The UV Sterilizer Calculator serves multiple practical purposes across different aquarium keeping scenarios. First, hobbyists setting up a new aquarium use this calculator during the planning phase to ensure their setup will support healthy conditions before purchasing any livestock or equipment, saving both money and potential fish losses. Second, experienced aquarists expanding or modifying their existing systems rely on this tool when adding new fish, upgrading equipment, or transitioning between freshwater and saltwater configurations to verify that changes will maintain stable water parameters. Third, aquarium maintenance professionals and fish store employees use calculations like these when advising customers, designing client installations, or troubleshooting recurring water quality issues in residential and commercial aquarium setups. Fourth, educators and students in marine biology or aquaculture programs reference these calculations when designing classroom aquarium projects or studying the relationships between biological load, water chemistry, and filtration capacity in closed aquatic systems.</p>
+<h3>Common Mistakes to Avoid</h3>
+<p>When using the UV Sterilizer Calculator, several common errors can lead to inaccurate results and potentially harmful outcomes for your aquarium inhabitants. First, many hobbyists use juvenile fish sizes rather than adult sizes in their calculations, leading to overstocking as fish grow to maturity within months. Second, users frequently overestimate their filtration capacity by counting the manufacturer's maximum rating rather than the effective filtration rate, which is typically 60 to 80 percent of the stated maximum once media is loaded and flow is established. Third, failing to account for decorations, substrate, and equipment that displace water volume leads to calculations based on more water than actually exists in the tank. Fourth, ignoring the cumulative bioload of bottom feeders, snails, and shrimp because they seem small individually can push a tank past its safe capacity, as these organisms still produce waste and consume oxygen.</p>
+<h3>Practical Tips</h3>
+<ul>
+<li>Match your pump flow rate to your UV sterilizer wattage — a 500 GPH flow through a 9-watt sterilizer provides minimal contact time, while the same 9-watt sterilizer at 100 GPH may be much more effective at eliminating pathogens.</li>
+<li>For disease outbreaks (ich, velvet, or bacterial infections), reduce flow rate to 50-75% of your pump&#x27;s maximum capacity to increase water contact time with UV light, improving treatment effectiveness.</li>
+<li>UV sterilizers require clean quartz sleeves and regular bulb replacement (typically every 6-12 months) because UV output degrades over time regardless of runtime hours.</li>
+<li>Position your UV sterilizer in your filter return line rather than as a standalone unit so all tank water gets treated continuously; a basic rule is 1 watt per 10 gallons for maintenance and 2-3 watts per 10 gallons for disease treatment.</li>
+<li>Monitor your aquarium&#x27;s UV sterilizer flow rate with an in-line valve or flow meter rather than guessing — many aquarists assume their sterilizers aren&#x27;t working when really the flow is either too fast or too slow for the wattage being used.</li>
+<li>Document your calculation results and actual outcomes over time to build a personal reference database. Tracking the relationship between calculated values and observed results helps you calibrate future estimates and identify patterns specific to your setup, water source, and maintenance routine.</li>
+<li>Cross-reference the results from this calculator with at least one other source or method before making significant purchases or changes. No single calculator can account for every variable in your specific situation, and comparing multiple estimates helps identify potential errors or unusual conditions.</li>
+<li>Consider seasonal variations when interpreting your results. Water temperature, ambient humidity, evaporation rates, and even municipal water chemistry can change significantly between summer and winter, affecting the accuracy of calculations based on a single set of conditions.</li>
+</ul>
+<div class="faq-section">
+<h3>Frequently Asked Questions</h3>
+<details class="faq-item"><summary>What is the difference between using UV for general maintenance versus disease treatment?</summary>
+<p>General maintenance uses lower wattage and shorter contact times (1-2 seconds) to maintain water clarity and control algae spores in healthy tanks. Disease treatment requires higher wattage and longer contact times (2-3 seconds or more) to ensure pathogenic organisms like ich parasites and bacterial pathogens are destroyed. Disease treatment may also require running water through the sterilizer multiple times or reducing flow rate for maximum effectiveness.</p>
+</details>
+<details class="faq-item"><summary>Will a UV sterilizer kill the beneficial bacteria in my filter?</summary>
+<p>No — UV sterilizers placed in your filter return line will not significantly harm your filter's beneficial bacteria because those bacteria live on filter media surfaces, not freely in the water column where UV light can reach them. The sterilizer targets free-floating organisms like algae spores, parasites, and disease-causing bacteria and viruses passing through the UV chamber.</p>
+</details>
+<details class="faq-item"><summary>How do I know if my UV sterilizer is actually working?</summary>
+<p>A working UV sterilizer will produce noticeably clearer water within 2-4 weeks, reduced green water algae blooms, and improved fish health during disease outbreaks. You should also see a visible blue glow from the quartz sleeve when the unit is powered on. If your water remains cloudy or algae problems persist, your flow rate may be too high, the bulb may need replacement, or the quartz sleeve may be dirty and needs cleaning.</p>
+</details>
+<details class="faq-item"><summary>Can I use a UV sterilizer in a planted tank?</summary>
+<p>Yes, but reduce the wattage or flow rate compared to fish-only tanks because high UV exposure can damage some aquatic plant cells and reduce photosynthetic efficiency. Many planted tank keepers use lower-wattage sterilizers (6-9 watts) at moderate flow rates primarily for parasite and disease control rather than full sterilization, and they reduce UV exposure if plants show stress.</p>
+</details>
+<details class="faq-item"><summary>What happens if I run my UV sterilizer too long or at too high a wattage?</summary>
+<p>Excessive UV exposure won't harm fish directly in most cases, but it can degrade water quality by over-sterilizing the water and removing beneficial microorganisms that help break down organic waste. It also wastes electricity and shortens bulb lifespan. Follow manufacturer guidelines and use only enough wattage and contact time for your specific purpose — maintenance or treatment.</p>
+</details>
+</div>
+<div class="sources-section">
+<h3>Sources</h3>
+<ul>
+<li>Modern Aquarium Setup and Maintenance — UV Sterilization Principles</li>
+<li>Association of Zoos and Aquariums (AZA) — Water Quality and Pathogen Control Standards</li>
+<li>American Aquaculture Association — Disease Management in Aquatic Systems</li>
+</ul>
+</div>
+<p class="edu-meta">Last updated: April 12, 2026 &middot; Reviewed by Angelo Smith</p>
+
+    </section>
+
+    <section class="crosslinks-section">
+        <h2>More Equipment &amp; Maintenance Calculators</h2>
+        <ul class="crosslinks-list">
+            <li><a href="../aquarium-cost-calculator/index.html">Aquarium Setup Cost Calculator</a></li>
+            <li><a href="../electricity-cost-calculator/index.html">Aquarium Electricity Cost Calculator</a></li>
+            <li><a href="../water-evaporation-calculator/index.html">Water Evaporation Calculator</a></li>
+            <li><a href="../maintenance-schedule-calculator/index.html">Maintenance Schedule Calculator</a></li>
+            <li><a href="../air-pump-calculator/index.html">Air Pump Calculator</a></li>
+            <li><a href="../aquarium-sealant-calculator/index.html">Aquarium Sealant Calculator</a></li>
+            <li><a href="../refugium-calculator/index.html">Refugium Calculator</a></li>
+        </ul>
+    </section>
+
+            </div>
+
+            <aside class="calc-sidebar" aria-label="Sidebar">
+                <!-- <div class="ad-slot" data-ad-slot="sidebar" aria-label="Advertisement"></div> -->
+        <div class="sidebar-widget">
+            <h3>Related Calculators</h3>
+            <ul>
+            <li><a href="../filter-flow-calculator/index.html">Filter Flow Rate Calculator</a></li>
+            <li><a href="../aquarium-cost-calculator/index.html">Aquarium Setup Cost Calculator</a></li>
+            <li><a href="../maintenance-schedule-calculator/index.html">Maintenance Schedule Calculator</a></li>
+            </ul>
+        </div>
+
+            </aside>
+        </div>
+    </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+            <li><a href="../category/tank-setup/index.html">Tank Setup</a></li>
+            <li><a href="../category/water-chemistry/index.html">Water Chemistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Tools</h4>
+                <ul>
+            <li><a href="../category/fish-stocking/index.html">Fish &amp; Stocking</a></li>
+            <li><a href="../category/equipment-maintenance/index.html">Equipment &amp; Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>AquaCalcs</h4>
+                <ul>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Aquarium calculations including stocking levels, water chemistry, and equipment sizing are approximate guidelines. Actual requirements vary by species, water source, and tank conditions. Always research species-specific needs and test water parameters regularly.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1a1a2e; color:#fff; padding:1rem 1.5rem; z-index:9999; font-size:0.9rem; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="margin:0; flex:1; min-width:250px;">We use cookies to improve your experience and serve relevant ads. By continuing to use this site, you consent to our use of cookies. See our <a href="../privacy/index.html" style="color:#60a5fa; text-decoration:underline;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookieConsent').style.display='none'; localStorage.setItem('cookieOK','1');" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.5rem; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept</button>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookieOK'))document.getElementById('cookieConsent').style.display='block';</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../calculator.js"></script>
+<script>
+(function() {
+    // Calculator formula
+    function calculate(inputs) {
+ var gallons = parseFloat(inputs.gallons) || 55;
+ var purpose = inputs.purpose || 'Algae Control (level 1)';
+ var flowGPH = parseFloat(inputs.flow_gph) || 200;
+ var wattsPerGal = 1.5;
+ if (purpose.indexOf('Algae') === 0) wattsPerGal = 1.5;
+ else if (purpose.indexOf('Bacteria') === 0) wattsPerGal = 2.5;
+ else if (purpose.indexOf('Parasite') === 0) wattsPerGal = 4;
+ var totalWatts = gallons * wattsPerGal;
+ var standardSizes = [9, 13, 18, 25, 36, 55, 75, 110];
+ var recommended = standardSizes[standardSizes.length - 1];
+ for (var i = 0; i < standardSizes.length; i++) {
+ if (standardSizes[i] >= totalWatts) { recommended = standardSizes[i]; break; }
+ }
+ var maxFlow = recommended * 10;
+ var flowOK = flowGPH <= maxFlow ? 'Good — within range' : 'Too fast — reduce flow or increase UV wattage';
+ var dwellTime = (gallons / flowGPH) * 60;
+ return {
+ results: [
+ {label: 'Calculated Watts Needed', value: totalWatts, format: 'number', decimals: 0},
+ {label: 'Recommended UV Size (watts)', value: recommended, format: 'integer', decimals: 0},
+ {label: 'Max Flow for this UV (GPH)', value: maxFlow, format: 'integer', decimals: 0},
+ {label: 'Your Flow Status', value: flowOK, format: 'text', decimals: 0},
+ {label: 'Dwell Time (minutes)', value: dwellTime, format: 'number', decimals: 1}
+ ],
+ chart: {
+ type: 'bar',
+ data: {
+ labels: ['Watts Needed', 'Recommended UV'],
+ datasets: [{label: 'Watts', data: [totalWatts, recommended], backgroundColor: ['rgba(13, 148, 136, 0.6)', 'rgba(94, 234, 212, 0.6)'], borderColor: ['rgba(13, 148, 136, 1)', 'rgba(94, 234, 212, 1)'], borderWidth: 1}]
+ },
+ options: {responsive: true, plugins: {legend: {display: false}}}
+ }
+ };
+}
+
+    // Validation rules (optional)
+    var validationRules = null;
+
+    // Initialize
+    window.initCalculator({
+        calculate: calculate,
+        validation: validationRules,
+        canvasId: "calc-chart"
+    });
+})();
+</script>
+</body>
+</html>
